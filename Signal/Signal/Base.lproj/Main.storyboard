@@ -9,7 +9,7 @@
         <!--Add Signal View Controller-->
         <scene sceneID="ThN-ch-Tdn">
             <objects>
-                <viewController id="iC4-6p-sHq" customClass="AddSignalViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddSignal" id="iC4-6p-sHq" customClass="AddSignalViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oyL-0o-XP6"/>
                         <viewControllerLayoutGuide type="bottom" id="eOk-fR-e6d"/>
@@ -22,12 +22,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vlJ-sH-uHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1300" y="154"/>
+            <point key="canvasLocation" x="948" y="-99"/>
         </scene>
         <!--Signal Table View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SignalTableViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignalTable" id="BYZ-38-t0r" customClass="SignalTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -40,10 +40,11 @@
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-V3-ghz">
-                                <rect key="frame" x="366" y="184" width="46" height="30"/>
+                                <rect key="frame" x="20" y="132" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="iC4-6p-sHq" kind="show" id="Nmj-8E-JpC"/>
+                                    <action selector="LogOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nfM-Qx-ZeW"/>
+                                    <segue destination="oc4-MH-xNj" kind="show" id="cAW-gu-S5v"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,15 +54,16 @@
                             <constraint firstItem="Woj-gf-B1U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vN6-71-8pq"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="XXp-We-wRx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="-92"/>
+            <point key="canvasLocation" x="252" y="-99"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Qgu-ax-cad">
             <objects>
-                <viewController id="DLn-bN-vRb" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreen" id="DLn-bN-vRb" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RPL-KX-zg7"/>
                         <viewControllerLayoutGuide type="bottom" id="O78-QQ-S5A"/>
@@ -84,12 +86,12 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kZP-12-Ceq">
                                 <rect key="frame" x="20" y="126" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6dX-LV-nqO">
                                 <rect key="frame" x="20" y="192" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9Z-wd-Q3c">
                                 <rect key="frame" x="206" y="319" width="188" height="49"/>
@@ -134,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BP-Ng-Vt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="491" y="651"/>
+            <point key="canvasLocation" x="335" y="588"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="8DH-8c-62b">
@@ -154,7 +156,7 @@
                                     <constraint firstAttribute="height" constant="30" id="8JS-Pe-w3q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uaL-Jb-GRc">
                                 <rect key="frame" x="20" y="184" width="560" height="30"/>
@@ -162,15 +164,7 @@
                                     <constraint firstAttribute="height" constant="30" id="qbv-2x-1dg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hNa-Am-QPc">
-                                <rect key="frame" x="20" y="251" width="560" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="LMN-cs-0oR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Uj-v5-GmJ">
                                 <rect key="frame" x="206" y="406" width="188" height="30"/>
@@ -192,6 +186,14 @@
                                     <action selector="registerBtn:" destination="B9x-qe-FVt" eventType="touchUpInside" id="gL1-8W-5lU"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hNa-Am-QPc">
+                                <rect key="frame" x="20" y="251" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LMN-cs-0oR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -217,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEb-SB-lnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119" y="651"/>
+            <point key="canvasLocation" x="939" y="735"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hA-0B-AMO">
@@ -235,7 +237,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6DF-Zs-MGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-450" y="588"/>
+            <point key="canvasLocation" x="-443" y="588"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gdY-HV-fYr">
+            <objects>
+                <navigationController storyboardIdentifier="MainNav" automaticallyAdjustsScrollViewInsets="NO" id="MkI-S5-Ryy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JnP-yL-XE4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gop-OZ-dsV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nnp-gZ-4sU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-450" y="-99"/>
         </scene>
     </scenes>
 </document>

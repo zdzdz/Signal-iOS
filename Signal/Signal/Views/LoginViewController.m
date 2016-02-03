@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 
 #import "RegisterViewController.h"
+#import "SignalTableViewController.h"
+
+#import <Parse/Parse.h>
 
 @interface LoginViewController()
 @property (weak, nonatomic) IBOutlet UITextField *usernameLabel;
@@ -19,6 +22,13 @@
 @end
 
 @implementation LoginViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [self.navigationItem setHidesBackButton:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,17 +51,36 @@
 - (IBAction)loginBtn:(UIButton *)sender {
     
     if (self.usernameLabel.text.length == 0 || self.passwordLabel.text.length == 0) {
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert"
-                                                                       message:@"Fields cannot be empty."
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-            
-        }];
-        
-        [alert addAction:defaultAction];
-        
-        [self presentViewController:alert animated:YES completion:nil];
+        [self showAlert:@"Fields cannot be empty."];
+    } else {
+        [PFUser logInWithUsernameInBackground:self.usernameLabel.text
+                                     password:self.passwordLabel.text
+                                        block:^(PFUser *user, NSError *error) {
+                                            if (user) {
+                                                NSString *storyBoardId = @"SignalTable";
+                                                
+                                                SignalTableViewController *signalTableVC =
+                                                [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
+                                                [self.navigationController pushViewController:signalTableVC animated:YES];
+                                            } else {
+                                                NSString *errorString = [error userInfo][@"error"];
+                                                [self showAlert:errorString];
+                                            }
+                                        }];
     }
+}
+
+- (void) showAlert: (NSString*) message{
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"ERROR"
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        
+    }];
+    
+    [alert addAction:defaultAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 @end

@@ -16,11 +16,26 @@
 
 @implementation AppDelegate
 
+-(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+    
+    return YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Parse setApplicationId:@"vEa57P7bqZlajbuCKWIBvaAIiyIZXbL5fk5KCedQ"
                   clientKey:@"i5GqjnR6cZ4j3R6PK5CMtVsUqJQe32fvDn00ghII"];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    
+    if (currentUser) {
+        [self changeEntryPoint:@"MainNav"];
+    }
+//    else {
+//        [self changeEntryPoint:@"LoginScreen"];
+//    }
+    
     return YES;
 }
 
@@ -126,6 +141,17 @@
             abort();
         }
     }
+}
+
+-(void)changeEntryPoint:(NSString*) viewId{
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:viewId];
+    
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
 }
 
 @end

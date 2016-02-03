@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import <Parse/Parse.h>
 
 @interface RegisterViewController()
 @property (weak, nonatomic) IBOutlet UITextField *usernameLabel;
@@ -30,30 +31,41 @@
 
 - (IBAction)registerBtn:(UIButton *)sender {
     if (self.passwordLabel.text != self.repeatPasswordLabel.text) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert"
-                                                                       message:@"Passwords do not match."
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-            
-        }];
-        
-        [alert addAction:defaultAction];
-        
-        [self presentViewController:alert animated:YES completion:nil];
+        [self showAlert:@"Passwords do not match."];
     }
     
     if (self.usernameLabel.text.length == 0 || self.passwordLabel.text.length == 0 || self.repeatPasswordLabel.text.length == 0) {
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert"
-                                                                       message:@"Fields cannot be empty."
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-            
+        [self showAlert:@"Fields cannot be empty."];
+    } else {
+        
+        PFUser *user = [PFUser user];
+        user.username = self.usernameLabel.text;
+        user.password = self.passwordLabel.text;
+        
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                [self showAlert:@"Fields cannot be empty."];
+            } else {   NSString *errorString = [error userInfo][@"error"];
+                [self showAlert:errorString];
+            }
         }];
-        
-        [alert addAction:defaultAction];
-        
-        [self presentViewController:alert animated:YES completion:nil];
     }
 }
+
+- (void) showAlert: (NSString*) message{
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"ERROR"
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        
+    }];
+    
+    [alert addAction:defaultAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 @end

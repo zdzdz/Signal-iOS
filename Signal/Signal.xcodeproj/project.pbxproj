@@ -15,9 +15,11 @@
 		0DD170841C5FF22B00A39D7B /* Signal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170821C5FF22B00A39D7B /* Signal.xcdatamodeld */; };
 		0DD170861C5FF22B00A39D7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD170851C5FF22B00A39D7B /* Assets.xcassets */; };
 		0DD170891C5FF22B00A39D7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD170871C5FF22B00A39D7B /* LaunchScreen.storyboard */; };
+		7F93E4B4BAB7117EE083651C /* libPods-Signal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C5DF430988F7034285FD56 /* libPods-Signal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C146B126909314B99D0237F /* Pods-Signal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Signal/Pods-Signal.release.xcconfig"; sourceTree = "<group>"; };
 		0D6636301C60047000D15136 /* AddSignalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSignalViewController.h; sourceTree = "<group>"; };
 		0D6636311C60047000D15136 /* AddSignalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSignalViewController.m; sourceTree = "<group>"; };
 		0DD170731C5FF22B00A39D7B /* Signal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +33,8 @@
 		0DD170851C5FF22B00A39D7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DD170881C5FF22B00A39D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DD1708A1C5FF22B00A39D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A4B1C8E17DF58487E50C5E6 /* Pods-Signal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Signal/Pods-Signal.debug.xcconfig"; sourceTree = "<group>"; };
+		76C5DF430988F7034285FD56 /* libPods-Signal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Signal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F93E4B4BAB7117EE083651C /* libPods-Signal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +65,8 @@
 			children = (
 				0DD170751C5FF22B00A39D7B /* Signal */,
 				0DD170741C5FF22B00A39D7B /* Products */,
+				38E1EEAB8A370D1F697AD871 /* Pods */,
+				FDC5169DC6E61CC89773CBEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +102,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		38E1EEAB8A370D1F697AD871 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A4B1C8E17DF58487E50C5E6 /* Pods-Signal.debug.xcconfig */,
+				0C146B126909314B99D0237F /* Pods-Signal.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FDC5169DC6E61CC89773CBEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76C5DF430988F7034285FD56 /* libPods-Signal.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DD1708D1C5FF22B00A39D7B /* Build configuration list for PBXNativeTarget "Signal" */;
 			buildPhases = (
+				2FE9ECE046996570C7D36E92 /* Check Pods Manifest.lock */,
 				0DD1706F1C5FF22B00A39D7B /* Sources */,
 				0DD170701C5FF22B00A39D7B /* Frameworks */,
 				0DD170711C5FF22B00A39D7B /* Resources */,
+				07D43E274B7A2CC94BFC0C6E /* Embed Pods Frameworks */,
+				E27F9D2366161C2902F836DC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -160,6 +187,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07D43E274B7A2CC94BFC0C6E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Signal/Pods-Signal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FE9ECE046996570C7D36E92 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E27F9D2366161C2902F836DC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Signal/Pods-Signal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0DD1706F1C5FF22B00A39D7B /* Sources */ = {
@@ -278,6 +353,7 @@
 		};
 		0DD1708E1C5FF22B00A39D7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A4B1C8E17DF58487E50C5E6 /* Pods-Signal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Signal/Info.plist;
@@ -289,6 +365,7 @@
 		};
 		0DD1708F1C5FF22B00A39D7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C146B126909314B99D0237F /* Pods-Signal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Signal/Info.plist;

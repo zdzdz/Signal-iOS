@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D6636321C60047000D15136 /* AddSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6636311C60047000D15136 /* AddSignalViewController.m */; };
+		0D0C2E061C626AE5001E6C35 /* SignalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E051C626AE5001E6C35 /* SignalTableViewController.m */; };
+		0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */; };
+		0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */; };
+		0D9A0D501C6269BA00373AA7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A0D4F1C6269BA00373AA7 /* LoginViewController.m */; };
 		0DD170781C5FF22B00A39D7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170771C5FF22B00A39D7B /* main.m */; };
 		0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1707A1C5FF22B00A39D7B /* AppDelegate.m */; };
-		0DD1707E1C5FF22B00A39D7B /* SignalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1707D1C5FF22B00A39D7B /* SignalTableViewController.m */; };
 		0DD170811C5FF22B00A39D7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD1707F1C5FF22B00A39D7B /* Main.storyboard */; };
 		0DD170841C5FF22B00A39D7B /* Signal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170821C5FF22B00A39D7B /* Signal.xcdatamodeld */; };
 		0DD170861C5FF22B00A39D7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD170851C5FF22B00A39D7B /* Assets.xcassets */; };
@@ -20,14 +22,18 @@
 
 /* Begin PBXFileReference section */
 		0C146B126909314B99D0237F /* Pods-Signal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Signal/Pods-Signal.release.xcconfig"; sourceTree = "<group>"; };
-		0D6636301C60047000D15136 /* AddSignalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSignalViewController.h; sourceTree = "<group>"; };
-		0D6636311C60047000D15136 /* AddSignalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSignalViewController.m; sourceTree = "<group>"; };
+		0D0C2E041C626AE5001E6C35 /* SignalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignalTableViewController.h; path = Views/SignalTableViewController.h; sourceTree = "<group>"; };
+		0D0C2E051C626AE5001E6C35 /* SignalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignalTableViewController.m; path = Views/SignalTableViewController.m; sourceTree = "<group>"; };
+		0D0C2E071C626B62001E6C35 /* AddSignalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddSignalViewController.h; path = Views/AddSignalViewController.h; sourceTree = "<group>"; };
+		0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddSignalViewController.m; path = Views/AddSignalViewController.m; sourceTree = "<group>"; };
+		0D0C2E0A1C626BC2001E6C35 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Views/RegisterViewController.h; sourceTree = "<group>"; };
+		0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Views/RegisterViewController.m; sourceTree = "<group>"; };
+		0D9A0D4E1C6269BA00373AA7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Views/LoginViewController.h; sourceTree = "<group>"; };
+		0D9A0D4F1C6269BA00373AA7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Views/LoginViewController.m; sourceTree = "<group>"; };
 		0DD170731C5FF22B00A39D7B /* Signal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD170771C5FF22B00A39D7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DD170791C5FF22B00A39D7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0DD1707A1C5FF22B00A39D7B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0DD1707C1C5FF22B00A39D7B /* SignalTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignalTableViewController.h; sourceTree = "<group>"; };
-		0DD1707D1C5FF22B00A39D7B /* SignalTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignalTableViewController.m; sourceTree = "<group>"; };
 		0DD170801C5FF22B00A39D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0DD170831C5FF22B00A39D7B /* Signal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Signal.xcdatamodel; sourceTree = "<group>"; };
 		0DD170851C5FF22B00A39D7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,10 +58,14 @@
 		0D66362C1C6003CA00D15136 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0DD1707C1C5FF22B00A39D7B /* SignalTableViewController.h */,
-				0DD1707D1C5FF22B00A39D7B /* SignalTableViewController.m */,
-				0D6636301C60047000D15136 /* AddSignalViewController.h */,
-				0D6636311C60047000D15136 /* AddSignalViewController.m */,
+				0D9A0D4E1C6269BA00373AA7 /* LoginViewController.h */,
+				0D9A0D4F1C6269BA00373AA7 /* LoginViewController.m */,
+				0D0C2E041C626AE5001E6C35 /* SignalTableViewController.h */,
+				0D0C2E051C626AE5001E6C35 /* SignalTableViewController.m */,
+				0D0C2E071C626B62001E6C35 /* AddSignalViewController.h */,
+				0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */,
+				0D0C2E0A1C626BC2001E6C35 /* RegisterViewController.h */,
+				0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -241,11 +251,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DD1707E1C5FF22B00A39D7B /* SignalTableViewController.m in Sources */,
-				0D6636321C60047000D15136 /* AddSignalViewController.m in Sources */,
+				0D9A0D501C6269BA00373AA7 /* LoginViewController.m in Sources */,
 				0DD170841C5FF22B00A39D7B /* Signal.xcdatamodeld in Sources */,
 				0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */,
 				0DD170781C5FF22B00A39D7B /* main.m in Sources */,
+				0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */,
+				0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */,
+				0D0C2E061C626AE5001E6C35 /* SignalTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

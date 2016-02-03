@@ -1,17 +1,13 @@
 //
-//  ViewController.h
+//  SignalTableViewController.h
 //  Signal
 //
-//  Created by Sam Son on 2/1/16.
+//  Created by Sam Son on 2/3/16.
 //  Copyright © 2016 zdzdz. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
-
 
 @interface SignalTableViewController : UIViewController
 
-
 @end
-

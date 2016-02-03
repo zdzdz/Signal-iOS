@@ -1,22 +1,22 @@
 //
-//  ViewController.m
+//  AddSignalViewController.m
 //  Signal
 //
-//  Created by Sam Son on 2/1/16.
+//  Created by Sam Son on 2/3/16.
 //  Copyright © 2016 zdzdz. All rights reserved.
 //
 
-#import "SignalTableViewController.h"
+#import "AddSignalViewController.h"
 
-@interface SignalTableViewController ()
+@interface AddSignalViewController()
 
 @end
 
-@implementation SignalTableViewController
+@implementation AddSignalViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {

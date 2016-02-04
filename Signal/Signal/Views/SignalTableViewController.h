@@ -10,4 +10,6 @@
 
 @interface SignalTableViewController : UIViewController
 
+@property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSString *name;
 @end

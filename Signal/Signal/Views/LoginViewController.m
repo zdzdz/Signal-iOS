@@ -6,7 +6,10 @@
 //  Copyright © 2016 zdzdz. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
+
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 #import "RegisterViewController.h"
 #import "SignalTableViewController.h"
@@ -14,6 +17,8 @@
 #import <Parse/Parse.h>
 
 @interface LoginViewController()
+@property(nonatomic,readonly) NSManagedObjectContext *managedContext;
+
 @property (weak, nonatomic) IBOutlet UITextField *usernameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordLabel;
 
@@ -62,12 +67,45 @@
                                                 SignalTableViewController *signalTableVC =
                                                 [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
                                                 [self.navigationController pushViewController:signalTableVC animated:YES];
+                                                
+                                                [self saveToCoreData];
                                             } else {
                                                 NSString *errorString = [error userInfo][@"error"];
                                                 [self showAlert:@"Error" :errorString];
                                             }
                                         }];
     }
+}
+
+-(void)saveToCoreData{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Profile" inManagedObjectContext:self.managedContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
+    
+    if (fetchedObjects.count != 0) {
+        NSManagedObject* fetchetItem = [fetchedObjects objectAtIndex:0];
+        [fetchetItem setValue:self.usernameLabel.text forKey:@"name"];
+    } else {
+        NSManagedObject *profile = [NSEntityDescription
+                                    insertNewObjectForEntityForName:@"Profile"
+                                    inManagedObjectContext:self.managedContext];
+        
+        [profile setValue:self.usernameLabel.text forKey:@"name"];
+        
+        if (![self.managedContext save:&error]) {
+            NSLog(@"Error saving: %@", [error localizedDescription]);
+        }
+    }
+}
+
+-(NSManagedObjectContext*)managedContext{
+    NSManagedObjectContext *managedContext =
+    [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    return managedContext;
 }
 
 - (void) showAlert: (NSString*) title :(NSString*) message{

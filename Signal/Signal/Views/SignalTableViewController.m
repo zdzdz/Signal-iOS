@@ -5,6 +5,7 @@
 //  Created by Sam Son on 2/3/16.
 //  Copyright © 2016 zdzdz. All rights reserved.
 //
+#import <CoreData/CoreData.h>
 
 #import "SignalTableViewController.h"
 #import "Parse/Parse.h"
@@ -12,8 +13,14 @@
 #import "AddSignalViewController.h"
 #import "RegisterViewController.h"
 
+#import "AppDelegate.h"
+
 @interface SignalTableViewController()
+@property(nonatomic,readonly) NSManagedObjectContext *managedContext;
+@property (weak, nonatomic) IBOutlet UIButton *buttonName;
+
 - (IBAction)LogOut:(UIButton *)sender;
+
 
 @end
 
@@ -49,6 +56,17 @@
     
     self.title = @"All Signals";
     self.navigationItem.rightBarButtonItem = addBarButton;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Profile" inManagedObjectContext:self.managedContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *userName in fetchedObjects) {
+       // NSLog(@"Name: %@", [userName valueForKey:@"name"]);
+        [self.buttonName setTitle:[userName valueForKey:@"name"] forState: UIControlStateNormal];
+    }
 }
 
 -(void) showAddButton {
@@ -81,4 +99,11 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+-(NSManagedObjectContext*)managedContext{
+    NSManagedObjectContext *managedContext =
+    [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    return managedContext;
+}
+
 @end

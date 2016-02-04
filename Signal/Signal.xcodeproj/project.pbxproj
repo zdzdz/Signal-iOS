@@ -10,6 +10,7 @@
 		0D0C2E061C626AE5001E6C35 /* SignalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E051C626AE5001E6C35 /* SignalTableViewController.m */; };
 		0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */; };
 		0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */; };
+		0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D12F5BD1C635E890060E630 /* ImageViewController.swift */; };
 		0D9A0D501C6269BA00373AA7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A0D4F1C6269BA00373AA7 /* LoginViewController.m */; };
 		0DD170781C5FF22B00A39D7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170771C5FF22B00A39D7B /* main.m */; };
 		0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1707A1C5FF22B00A39D7B /* AppDelegate.m */; };
@@ -28,6 +29,8 @@
 		0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddSignalViewController.m; path = Views/AddSignalViewController.m; sourceTree = "<group>"; };
 		0D0C2E0A1C626BC2001E6C35 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Views/RegisterViewController.h; sourceTree = "<group>"; };
 		0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Views/RegisterViewController.m; sourceTree = "<group>"; };
+		0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Signal-Bridging-Header.h"; sourceTree = "<group>"; };
+		0D12F5BD1C635E890060E630 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = Views/ImageViewController.swift; sourceTree = "<group>"; };
 		0D9A0D4E1C6269BA00373AA7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Views/LoginViewController.h; sourceTree = "<group>"; };
 		0D9A0D4F1C6269BA00373AA7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Views/LoginViewController.m; sourceTree = "<group>"; };
 		0DD170731C5FF22B00A39D7B /* Signal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +69,8 @@
 				0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */,
 				0D0C2E0A1C626BC2001E6C35 /* RegisterViewController.h */,
 				0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */,
+				0D12F5BD1C635E890060E630 /* ImageViewController.swift */,
+				0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				0DD170781C5FF22B00A39D7B /* main.m in Sources */,
 				0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */,
 				0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */,
+				0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */,
 				0D0C2E061C626AE5001E6C35 /* SignalTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,10 +374,13 @@
 			baseConfigurationReference = 6A4B1C8E17DF58487E50C5E6 /* Pods-Signal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Signal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zdzdz.Signal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Signal/Signal-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -380,10 +389,12 @@
 			baseConfigurationReference = 0C146B126909314B99D0237F /* Pods-Signal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Signal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zdzdz.Signal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Signal/Signal-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -10,6 +10,7 @@
 #import "Parse/Parse.h"
 
 #import "AddSignalViewController.h"
+#import "RegisterViewController.h"
 
 @interface SignalTableViewController()
 - (IBAction)LogOut:(UIButton *)sender;
@@ -23,6 +24,18 @@
     [super viewWillAppear:animated];
     
     [self.navigationItem setHidesBackButton:YES];
+    
+    @try{
+        NSArray *viewControllers = self.navigationController.viewControllers;
+        UIViewController *rootViewController = (UIViewController *)[viewControllers objectAtIndex:viewControllers.count - 2];
+        
+        
+        if([rootViewController isKindOfClass:[RegisterViewController class]]){
+            [self showAlert:@"Welcome" :@"You have successfully registered."];
+        }
+    } @catch(NSException *exception){
+        
+    }
 }
 
 - (void)viewDidLoad {
@@ -53,5 +66,19 @@
 
 - (IBAction)LogOut:(UIButton *)sender {
     [PFUser logOut];
+}
+
+- (void) showAlert: (NSString*) title :(NSString*) message{
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        
+    }];
+    
+    [alert addAction:defaultAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "SignalTableViewController.h"
 #import <Parse/Parse.h>
 
 @interface RegisterViewController()
@@ -31,12 +32,12 @@
 
 - (IBAction)registerBtn:(UIButton *)sender {
     if (self.passwordLabel.text != self.repeatPasswordLabel.text) {
-        [self showAlert:@"Passwords do not match."];
+        [self showAlert:@"Warning" :@"Passwords do not match."];
     }
     
     if (self.usernameLabel.text.length == 0 || self.passwordLabel.text.length == 0 || self.repeatPasswordLabel.text.length == 0) {
         
-        [self showAlert:@"Fields cannot be empty."];
+        [self showAlert:@"Warning" :@"Fields cannot be empty."];
     } else {
         
         PFUser *user = [PFUser user];
@@ -45,18 +46,22 @@
         
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
-                [self.navigationController popToRootViewControllerAnimated:YES];
-                [self showAlert:@"Fields cannot be empty."];
+                NSString *storyBoardId = @"SignalTable";
+                
+                SignalTableViewController *signalTableVC =
+                [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
+                [self.navigationController pushViewController:signalTableVC animated:YES];
+                
             } else {   NSString *errorString = [error userInfo][@"error"];
-                [self showAlert:errorString];
+                [self showAlert:@"Error" :errorString];
             }
         }];
     }
 }
 
-- (void) showAlert: (NSString*) message{
+- (void) showAlert: (NSString*) title :(NSString*) message{
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"ERROR"
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {

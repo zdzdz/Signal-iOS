@@ -51,7 +51,7 @@
 - (IBAction)loginBtn:(UIButton *)sender {
     
     if (self.usernameLabel.text.length == 0 || self.passwordLabel.text.length == 0) {
-        [self showAlert:@"Fields cannot be empty."];
+        [self showAlert:@"Warning" :@"Fields cannot be empty."];
     } else {
         [PFUser logInWithUsernameInBackground:self.usernameLabel.text
                                      password:self.passwordLabel.text
@@ -64,15 +64,15 @@
                                                 [self.navigationController pushViewController:signalTableVC animated:YES];
                                             } else {
                                                 NSString *errorString = [error userInfo][@"error"];
-                                                [self showAlert:errorString];
+                                                [self showAlert:@"Error" :errorString];
                                             }
                                         }];
     }
 }
 
-- (void) showAlert: (NSString*) message{
+- (void) showAlert: (NSString*) title :(NSString*) message{
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"ERROR"
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -83,4 +83,5 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 @end

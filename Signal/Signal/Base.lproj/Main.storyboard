@@ -44,7 +44,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="LogOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nfM-Qx-ZeW"/>
-                                    <segue destination="oc4-MH-xNj" kind="show" id="cAW-gu-S5v"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -227,7 +226,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7hA-0B-AMO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oc4-MH-xNj" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNav" automaticallyAdjustsScrollViewInsets="NO" id="oc4-MH-xNj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r6Q-cN-pcU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

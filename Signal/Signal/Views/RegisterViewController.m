@@ -77,6 +77,7 @@
     if (fetchedObjects.count != 0) {
         NSManagedObject* fetchetItem = [fetchedObjects objectAtIndex:0];
         [fetchetItem setValue:self.usernameLabel.text forKey:@"name"];
+        [self.managedContext save:&error];
     } else {
         NSManagedObject *profile = [NSEntityDescription
                                     insertNewObjectForEntityForName:@"Profile"

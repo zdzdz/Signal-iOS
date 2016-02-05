@@ -11,6 +11,9 @@
 		0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */; };
 		0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */; };
 		0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D12F5BD1C635E890060E630 /* ImageViewController.swift */; };
+		0D5DC9061C63FAA700083A0B /* TelerikAppFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */; };
+		0D5DC9071C63FAA700083A0B /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5DC9051C63FAA700083A0B /* TelerikUI.framework */; };
+		0D5DC90A1C64240F00083A0B /* SideDrawerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5DC9091C64240F00083A0B /* SideDrawerHeaderView.m */; };
 		0D9A0D501C6269BA00373AA7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A0D4F1C6269BA00373AA7 /* LoginViewController.m */; };
 		0DD170781C5FF22B00A39D7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170771C5FF22B00A39D7B /* main.m */; };
 		0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1707A1C5FF22B00A39D7B /* AppDelegate.m */; };
@@ -31,6 +34,10 @@
 		0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Views/RegisterViewController.m; sourceTree = "<group>"; };
 		0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Signal-Bridging-Header.h"; sourceTree = "<group>"; };
 		0D12F5BD1C635E890060E630 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = Views/ImageViewController.swift; sourceTree = "<group>"; };
+		0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikAppFeedback.framework; path = Signal/TelerikAppFeedback.framework; sourceTree = "<group>"; };
+		0D5DC9051C63FAA700083A0B /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikUI.framework; path = Signal/TelerikUI.framework; sourceTree = "<group>"; };
+		0D5DC9081C64240F00083A0B /* SideDrawerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideDrawerHeaderView.h; path = Views/SideDrawerHeaderView.h; sourceTree = "<group>"; };
+		0D5DC9091C64240F00083A0B /* SideDrawerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideDrawerHeaderView.m; path = Views/SideDrawerHeaderView.m; sourceTree = "<group>"; };
 		0D9A0D4E1C6269BA00373AA7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Views/LoginViewController.h; sourceTree = "<group>"; };
 		0D9A0D4F1C6269BA00373AA7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Views/LoginViewController.m; sourceTree = "<group>"; };
 		0DD170731C5FF22B00A39D7B /* Signal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D5DC9061C63FAA700083A0B /* TelerikAppFeedback.framework in Frameworks */,
+				0D5DC9071C63FAA700083A0B /* TelerikUI.framework in Frameworks */,
 				7F93E4B4BAB7117EE083651C /* libPods-Signal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +80,8 @@
 				0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */,
 				0D12F5BD1C635E890060E630 /* ImageViewController.swift */,
 				0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */,
+				0D5DC9081C64240F00083A0B /* SideDrawerHeaderView.h */,
+				0D5DC9091C64240F00083A0B /* SideDrawerHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -129,6 +140,8 @@
 		FDC5169DC6E61CC89773CBEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */,
+				0D5DC9051C63FAA700083A0B /* TelerikUI.framework */,
 				76C5DF430988F7034285FD56 /* libPods-Signal.a */,
 			);
 			name = Frameworks;
@@ -259,6 +272,7 @@
 				0D9A0D501C6269BA00373AA7 /* LoginViewController.m in Sources */,
 				0DD170841C5FF22B00A39D7B /* Signal.xcdatamodeld in Sources */,
 				0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */,
+				0D5DC90A1C64240F00083A0B /* SideDrawerHeaderView.m in Sources */,
 				0DD170781C5FF22B00A39D7B /* main.m in Sources */,
 				0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */,
 				0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */,
@@ -375,6 +389,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Signal",
+				);
 				INFOPLIST_FILE = Signal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zdzdz.Signal;
@@ -390,6 +408,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Signal",
+				);
 				INFOPLIST_FILE = Signal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zdzdz.Signal;

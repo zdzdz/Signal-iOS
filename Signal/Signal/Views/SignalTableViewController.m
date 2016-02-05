@@ -25,8 +25,9 @@
 @end
 
 @implementation SignalTableViewController{
-    NSString *currentName;
+    NSString *_currentName;
     UIView *_pageView;
+    UITableView *_tableView;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -60,7 +61,7 @@
     self.title = @"All Signals";
     self.navigationItem.rightBarButtonItem = addBarButton;
     
-    
+    //Opening sqlite db
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"Profile" inManagedObjectContext:self.managedContext];
@@ -68,9 +69,10 @@
     NSError *error;
     NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
     for (NSManagedObject *userName in fetchedObjects) {
-        currentName = [userName valueForKey:@"name"];
+        _currentName = [userName valueForKey:@"name"];
     }
 
+    //Adding side drawer
     _pageView = [[UIScrollView alloc] initWithFrame:CGRectZero];
     _pageView.backgroundColor = [UIColor clearColor];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
@@ -80,11 +82,6 @@
     [self.sideDrawerView.mainView addSubview:_pageView];
     self.sideDrawerView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_sideDrawerView];
-    
-//    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:self.sideDrawerView.mainView.bounds];
-//    backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//    backgroundView.backgroundColor = [UIColor blackColor];
-//    [self.sideDrawerView.mainView addSubview:backgroundView];
     
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.sideDrawerView.mainView.bounds), 55)];
     _navItem = [[UINavigationItem alloc] init];
@@ -106,14 +103,26 @@
     //sideDrawer.transition = TKSideDrawerTransitionTypePush;
     sideDrawer.delegate = self;
     
-    TKSideDrawerSection *section = [sideDrawer addSectionWithTitle:[NSString stringWithFormat:@"Hello, %@", currentName]];
+    TKSideDrawerSection *section = [sideDrawer addSectionWithTitle:[NSString stringWithFormat:@"Hello, %@", _currentName]];
     [section addItemWithTitle:@"Profile"];
     [section addItemWithTitle:@"About"];
     
     section = [sideDrawer addSectionWithTitle:@"Exit"];
     [section addItemWithTitle:@"Log out"];
     
+    //Adding search bar
     [self addSearchBarWithTitle:@"Search" target:self selector:@selector(showSideDrawer)];
+    
+    //Adding tableview
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.searchField.bounds.size.height + 10, self.view.bounds.size.width, self.view.bounds.size.height - (self.searchField.bounds.size.height + 140)) style:UITableViewStylePlain];
+    
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    _tableView.backgroundColor = [UIColor cyanColor];
+    
+    [_pageView addSubview:_tableView];
 }
 
 - (void)viewDidLayoutSubviews
@@ -240,5 +249,31 @@
     section.style.contentInsets = UIEdgeInsetsMake(0, -15, 0, 0);
 }
 
+#pragma mark - UITableViewDataSource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"CellId";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.textLabel.text = @"Testing";
+    
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"selected %ld row", indexPath.row);
+}
 
 @end

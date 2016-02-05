@@ -11,9 +11,10 @@
 		0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */; };
 		0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */; };
 		0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D12F5BD1C635E890060E630 /* ImageViewController.swift */; };
+		0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D233F5E1C6545CF00EE8C84 /* PhysicsTransitionManager.swift */; };
 		0D5DC9061C63FAA700083A0B /* TelerikAppFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */; };
 		0D5DC9071C63FAA700083A0B /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5DC9051C63FAA700083A0B /* TelerikUI.framework */; };
-		0D5DC90A1C64240F00083A0B /* SideDrawerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5DC9091C64240F00083A0B /* SideDrawerHeaderView.m */; };
+		0D7261751C6544FC004E55CE /* SideDrawerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7261741C6544FC004E55CE /* SideDrawerHeaderView.m */; };
 		0D9A0D501C6269BA00373AA7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A0D4F1C6269BA00373AA7 /* LoginViewController.m */; };
 		0DD170781C5FF22B00A39D7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170771C5FF22B00A39D7B /* main.m */; };
 		0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1707A1C5FF22B00A39D7B /* AppDelegate.m */; };
@@ -21,7 +22,6 @@
 		0DD170841C5FF22B00A39D7B /* Signal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170821C5FF22B00A39D7B /* Signal.xcdatamodeld */; };
 		0DD170861C5FF22B00A39D7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD170851C5FF22B00A39D7B /* Assets.xcassets */; };
 		0DD170891C5FF22B00A39D7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD170871C5FF22B00A39D7B /* LaunchScreen.storyboard */; };
-		0DE29C431C65150A00176FAB /* PhysicsTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE29C421C65150A00176FAB /* PhysicsTransitionManager.swift */; };
 		7F93E4B4BAB7117EE083651C /* libPods-Signal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C5DF430988F7034285FD56 /* libPods-Signal.a */; };
 /* End PBXBuildFile section */
 
@@ -35,10 +35,11 @@
 		0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Views/RegisterViewController.m; sourceTree = "<group>"; };
 		0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Signal-Bridging-Header.h"; sourceTree = "<group>"; };
 		0D12F5BD1C635E890060E630 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = Views/ImageViewController.swift; sourceTree = "<group>"; };
+		0D233F5E1C6545CF00EE8C84 /* PhysicsTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhysicsTransitionManager.swift; path = Helpers/PhysicsTransitionManager.swift; sourceTree = "<group>"; };
 		0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikAppFeedback.framework; path = Signal/TelerikAppFeedback.framework; sourceTree = "<group>"; };
 		0D5DC9051C63FAA700083A0B /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikUI.framework; path = Signal/TelerikUI.framework; sourceTree = "<group>"; };
-		0D5DC9081C64240F00083A0B /* SideDrawerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideDrawerHeaderView.h; path = Views/SideDrawerHeaderView.h; sourceTree = "<group>"; };
-		0D5DC9091C64240F00083A0B /* SideDrawerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideDrawerHeaderView.m; path = Views/SideDrawerHeaderView.m; sourceTree = "<group>"; };
+		0D7261731C6544FC004E55CE /* SideDrawerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideDrawerHeaderView.h; path = CustomViews/SideDrawerHeaderView.h; sourceTree = "<group>"; };
+		0D7261741C6544FC004E55CE /* SideDrawerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideDrawerHeaderView.m; path = CustomViews/SideDrawerHeaderView.m; sourceTree = "<group>"; };
 		0D9A0D4E1C6269BA00373AA7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Views/LoginViewController.h; sourceTree = "<group>"; };
 		0D9A0D4F1C6269BA00373AA7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Views/LoginViewController.m; sourceTree = "<group>"; };
 		0DD170731C5FF22B00A39D7B /* Signal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +51,6 @@
 		0DD170851C5FF22B00A39D7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DD170881C5FF22B00A39D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DD1708A1C5FF22B00A39D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0DE29C421C65150A00176FAB /* PhysicsTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhysicsTransitionManager.swift; path = Views/PhysicsTransitionManager.swift; sourceTree = "<group>"; };
 		6A4B1C8E17DF58487E50C5E6 /* Pods-Signal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Signal/Pods-Signal.debug.xcconfig"; sourceTree = "<group>"; };
 		76C5DF430988F7034285FD56 /* libPods-Signal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Signal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -69,6 +69,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D22B0F41C65440F005280A0 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0D7261731C6544FC004E55CE /* SideDrawerHeaderView.h */,
+				0D7261741C6544FC004E55CE /* SideDrawerHeaderView.m */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		0D233F5D1C6545BA00EE8C84 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0D233F5E1C6545CF00EE8C84 /* PhysicsTransitionManager.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		0D66362C1C6003CA00D15136 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,9 +99,6 @@
 				0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */,
 				0D12F5BD1C635E890060E630 /* ImageViewController.swift */,
 				0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */,
-				0D5DC9081C64240F00083A0B /* SideDrawerHeaderView.h */,
-				0D5DC9091C64240F00083A0B /* SideDrawerHeaderView.m */,
-				0DE29C421C65150A00176FAB /* PhysicsTransitionManager.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -110,6 +124,8 @@
 		0DD170751C5FF22B00A39D7B /* Signal */ = {
 			isa = PBXGroup;
 			children = (
+				0D233F5D1C6545BA00EE8C84 /* Helpers */,
+				0D22B0F41C65440F005280A0 /* CustomViews */,
 				0D66362C1C6003CA00D15136 /* Views */,
 				0DD170791C5FF22B00A39D7B /* AppDelegate.h */,
 				0DD1707A1C5FF22B00A39D7B /* AppDelegate.m */,
@@ -275,13 +291,13 @@
 				0D9A0D501C6269BA00373AA7 /* LoginViewController.m in Sources */,
 				0DD170841C5FF22B00A39D7B /* Signal.xcdatamodeld in Sources */,
 				0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */,
-				0D5DC90A1C64240F00083A0B /* SideDrawerHeaderView.m in Sources */,
 				0DD170781C5FF22B00A39D7B /* main.m in Sources */,
 				0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */,
-				0DE29C431C65150A00176FAB /* PhysicsTransitionManager.swift in Sources */,
 				0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */,
+				0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */,
 				0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */,
 				0D0C2E061C626AE5001E6C35 /* SignalTableViewController.m in Sources */,
+				0D7261751C6544FC004E55CE /* SideDrawerHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

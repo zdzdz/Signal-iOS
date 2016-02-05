@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <TelerikUI/TelerikUI.h>
 
-@interface SignalTableViewController : UIViewController <TKSideDrawerDelegate>
+@interface SignalTableViewController : UIViewController <TKSideDrawerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSString *name;

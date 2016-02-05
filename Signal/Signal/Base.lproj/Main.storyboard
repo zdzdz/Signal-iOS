@@ -35,28 +35,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Woj-gf-B1U">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                            </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-V3-ghz">
-                                <rect key="frame" x="20" y="132" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="LogOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nfM-Qx-ZeW"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Woj-gf-B1U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="98T-IZ-g5h"/>
-                            <constraint firstItem="Woj-gf-B1U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vN6-71-8pq"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XXp-We-wRx"/>
-                    <connections>
-                        <outlet property="buttonName" destination="dJL-V3-ghz" id="HID-0O-P6c"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

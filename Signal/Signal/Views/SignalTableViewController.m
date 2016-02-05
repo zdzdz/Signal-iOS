@@ -17,17 +17,11 @@
 #import "SideDrawerHeaderView.h"
 
 #import "AppDelegate.h"
+#import "Signal-Swift.h"
 
 @interface SignalTableViewController()
 @property(nonatomic,readonly) NSManagedObjectContext *managedContext;
-@property (weak, nonatomic) IBOutlet UIButton *buttonName;
 
-- (IBAction)LogOut:(UIButton *)sender;
-
-@property (nonatomic,strong) TKSideDrawerView *sideDrawerView;
-@property (nonatomic, strong) UINavigationItem *navItem;
-@property (nonatomic, strong) UIButton *searchButton;
-@property (nonatomic, strong) UITextField *searchField;
 @end
 
 @implementation SignalTableViewController{
@@ -75,11 +69,10 @@
     NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
     for (NSManagedObject *userName in fetchedObjects) {
         currentName = [userName valueForKey:@"name"];
-        [self.buttonName setTitle:[userName valueForKey:@"name"] forState: UIControlStateNormal];
     }
 
     _pageView = [[UIScrollView alloc] initWithFrame:CGRectZero];
-    _pageView.backgroundColor = [UIColor purpleColor];
+    _pageView.backgroundColor = [UIColor clearColor];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     
     self.sideDrawerView = [[TKSideDrawerView alloc] initWithFrame:self.view.bounds];
@@ -105,10 +98,12 @@
     
     TKSideDrawer *sideDrawer = self.sideDrawer;
     sideDrawer.style.shadowMode = TKSideDrawerShadowModeSideDrawer;
-    sideDrawer.fill = [TKSolidFill solidFillWithColor:[UIColor grayColor]];
+    sideDrawer.fill = [TKSolidFill solidFillWithColor:[UIColor colorWithRed:0.424 green:0.565 blue:0.592 alpha:1]];
+    sideDrawer.width = 250;
+    sideDrawer.transitionManager = [[PhysicsTransitionManager alloc] initWithSideDrawer:sideDrawer];
     sideDrawer.title = @"Be active!";
     sideDrawer.autoresizesSubviews = YES;
-    sideDrawer.transition = TKSideDrawerTransitionTypePush;
+    //sideDrawer.transition = TKSideDrawerTransitionTypePush;
     sideDrawer.delegate = self;
     
     TKSideDrawerSection *section = [sideDrawer addSectionWithTitle:[NSString stringWithFormat:@"Hello, %@", currentName]];
@@ -125,7 +120,7 @@
 {
     [super viewDidLayoutSubviews];
     _sideDrawerView.frame = CGRectMake(0, 55, CGRectGetWidth(self.view.bounds), self.view.bounds.size.height - 55);
-    _pageView.frame = CGRectMake(0, 44, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.sideDrawerView.mainView.bounds) - 44);
+    _pageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.sideDrawerView.mainView.bounds));
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -206,10 +201,10 @@
 - (void)addSearchBarWithTitle:(NSString *)title target:(id)target selector:(SEL)selector
 {
     CGSize titleSize = [title sizeWithAttributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:18] }];
-    self.searchButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - (titleSize.width + 5), 15, titleSize.width, 30)];
+    self.searchButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - (titleSize.width + 10), 0, titleSize.width + 5, 30)];
     self.searchButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [self.searchButton.layer setBorderWidth:1.0];
-    [self.searchButton.layer setBorderColor:[UIColor blackColor].CGColor];
+    [self.searchButton.layer setBorderColor:[UIColor colorWithRed:0.541 green:0.565 blue:0.565 alpha:1].CGColor];
     [self.searchButton.layer setCornerRadius:3.f];
     self.searchButton.backgroundColor = [UIColor colorWithRed:0.424 green:0.565 blue:0.592 alpha:1];
     [self.searchButton setTitle:title forState:UIControlStateNormal];
@@ -217,15 +212,15 @@
     [self.searchButton addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     [_pageView addSubview:self.searchButton];
     
-    self.searchField = [[UITextField alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x + 50, 15, self.view.bounds.size.width - (self.searchButton.bounds.size.width + 70),30)];
+    self.searchField = [[UITextField alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x + 50, 0, self.view.bounds.size.width - (self.searchButton.bounds.size.width + 60),30)];
     self.searchField.backgroundColor = [UIColor clearColor];
     self.searchField.placeholder = @"Search here";
     [self.searchField.layer setBorderWidth:1];
-    [self.searchField.layer setBorderColor:[UIColor blackColor].CGColor];
+    [self.searchField.layer setBorderColor:[UIColor colorWithRed:0.541 green:0.565 blue:0.565 alpha:1].CGColor];
     [self.searchField.layer setCornerRadius:3];
     [_pageView addSubview:self.searchField];
     
-    UIImageView *searchIcon = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x + 15, 15, self.view.bounds.size.width - (self.searchButton.bounds.size.width + self.searchField.bounds.size.width + 40), 30)];
+    UIImageView *searchIcon = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x + 15, 0, self.view.bounds.size.width - (self.searchButton.bounds.size.width + self.searchField.bounds.size.width + 30), 30)];
     [searchIcon setImage:[UIImage imageNamed:@"search"]];
     [_pageView addSubview:searchIcon];
 }

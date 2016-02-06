@@ -13,6 +13,7 @@
 #import "AddSignalViewController.h"
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "SignalDetailsViewController.h"
 #import "SignalCustomCell.h"
 
 #import "SideDrawerHeaderView.h"
@@ -249,6 +250,7 @@
     
     _animator = [[UIDynamicAnimator alloc] initWithReferenceView:_pageView];
     _gravity = [[UIGravityBehavior alloc] initWithItems:@[holder]];
+    _gravity.magnitude = 3;
     [_collision addBoundaryWithIdentifier:@"barrier"
                                 fromPoint:leftEdge
                                   toPoint:rightEdge];
@@ -260,7 +262,7 @@
 }
 
 -(void) callEmergency{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:112"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt:112"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -379,7 +381,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(SignalCustomCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    cell.cellTitle.text = @"Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahgcgcgchcchjcjchgchgchgchjgchchchjchgchjchghgcygfytff";
+    cell.cellTitle.text = @"Traffic accident";
     cell.cellCategory.text = @"Accident";
     cell.cellAuthor.text = @"Pesho";
     cell.cellDate.text = [self getDate];
@@ -409,7 +411,11 @@
 
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"selected %ld row", indexPath.row);
+    NSString *gsmInfoViewId = @"DetailsView";
+    
+    SignalDetailsViewController *detailsVC = [self.storyboard instantiateViewControllerWithIdentifier:gsmInfoViewId];
+    
+    [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
 @end

@@ -63,6 +63,6 @@ import UIKit
         gravity.gravityDirection = CGVector(dx: -1.0, dy: 0.0)
         gravity.magnitude = 4;
         collision.removeAllBoundaries()
-        collision.addBoundaryWithIdentifier("leftBound", fromPoint: CGPoint(x: -270, y: 0), toPoint: CGPoint(x: -270, y: (self.sideDrawer?.superview?.bounds.height)!))
+        collision.addBoundaryWithIdentifier("leftBound", fromPoint: CGPoint(x: -250, y: 0), toPoint: CGPoint(x: -250, y: (self.sideDrawer?.superview?.bounds.height)!))
     }
 }

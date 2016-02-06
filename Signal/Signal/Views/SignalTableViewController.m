@@ -13,6 +13,7 @@
 #import "AddSignalViewController.h"
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "SignalCustomCell.h"
 
 #import "SideDrawerHeaderView.h"
 
@@ -21,6 +22,7 @@
 
 @interface SignalTableViewController()
 @property(nonatomic,readonly) NSManagedObjectContext *managedContext;
+@property(nonatomic,strong) SignalCustomCell *customCell;
 
 @end
 
@@ -28,6 +30,8 @@
     NSString *_currentName;
     UIView *_pageView;
     UITableView *_tableView;
+    NSArray *_items;
+    UINavigationItem *_navItem;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -59,7 +63,7 @@
      action:@selector(showAddButton)];
     
     self.title = @"All Signals";
-    self.navigationItem.rightBarButtonItem = addBarButton;
+    //self.navigationItem.rightBarButtonItem = addBarButton;
     
     //Opening sqlite db
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -84,7 +88,10 @@
     [self.view addSubview:_sideDrawerView];
     
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.sideDrawerView.mainView.bounds), 55)];
+    
     _navItem = [[UINavigationItem alloc] init];
+    _navItem.title = @"Be active!";
+    _navItem.rightBarButtonItem = addBarButton;
     _navItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"]
                                                                   style:UIBarButtonItemStylePlain
                                                                  target:self
@@ -115,6 +122,7 @@
     
     //Adding tableview
     
+    _items = [[NSArray alloc] initWithObjects:@"Item", @"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",nil];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.searchField.bounds.size.height + 10, self.view.bounds.size.width, self.view.bounds.size.height - (self.searchField.bounds.size.height + 140)) style:UITableViewStylePlain];
     
     _tableView.delegate = self;
@@ -234,6 +242,15 @@
     [_pageView addSubview:searchIcon];
 }
 
+-(NSString*) getDate{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy.MM.dd"];
+    
+    NSString *stringFromDate = [formatter stringFromDate:[[NSDate alloc] init]];
+    
+    return stringFromDate;
+}
+
 #pragma mark TKSideDrawerDelegate
 
 - (void)sideDrawer:(TKSideDrawer *)sideDrawer updateVisualsForItem:(NSInteger)item inSection:(NSInteger)section
@@ -252,21 +269,47 @@
 #pragma mark - UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"CellId";
+    static NSString *cellIdentifier = @"CustomCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SignalCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:@"SignalCustomCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = @"Testing";
-    
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(SignalCustomCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    cell.cellTitle.text = @"Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahgcgcgchcchjcjchgchgchgchjgchchchjchgchjchghgcygfytff";
+    cell.cellCategory.text = @"Accident";
+    cell.cellAuthor.text = @"Pesho";
+    cell.cellDate.text = [self getDate];
+    cell.cellImage.image = [UIImage imageNamed:@"car-accident"];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (!self.customCell) {
+        self.customCell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+    }
+    
+//    self.customCell.cellTitle.text = @"Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahgcgcgchcchjcjchgchgchgchjgchchchjchgchjchghgcygfytff";
+//    self.customCell.cellCategory.text = @"Accident";
+//    self.customCell.cellAuthor.text = @"Pesho";
+//    self.customCell.cellDate.text = [self getDate];
+//    self.customCell.cellImage.image = [UIImage imageNamed:@"car-accident"];
+//    
+//    [self.customCell layoutIfNeeded];
+//    
+//    CGFloat height = [self.customCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGFloat height = 280;
+    
+    return height;
 }
 
 #pragma mark - UITableViewDelegate

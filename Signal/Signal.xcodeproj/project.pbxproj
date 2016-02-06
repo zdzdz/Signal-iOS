@@ -12,6 +12,8 @@
 		0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */; };
 		0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D12F5BD1C635E890060E630 /* ImageViewController.swift */; };
 		0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D233F5E1C6545CF00EE8C84 /* PhysicsTransitionManager.swift */; };
+		0D233F611C655CBD00EE8C84 /* SignalCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D233F601C655CBD00EE8C84 /* SignalCustomCell.xib */; };
+		0D233F641C65612400EE8C84 /* SignalCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D233F631C65612400EE8C84 /* SignalCustomCell.m */; };
 		0D5DC9061C63FAA700083A0B /* TelerikAppFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */; };
 		0D5DC9071C63FAA700083A0B /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5DC9051C63FAA700083A0B /* TelerikUI.framework */; };
 		0D7261751C6544FC004E55CE /* SideDrawerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7261741C6544FC004E55CE /* SideDrawerHeaderView.m */; };
@@ -36,6 +38,9 @@
 		0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Signal-Bridging-Header.h"; sourceTree = "<group>"; };
 		0D12F5BD1C635E890060E630 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = Views/ImageViewController.swift; sourceTree = "<group>"; };
 		0D233F5E1C6545CF00EE8C84 /* PhysicsTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhysicsTransitionManager.swift; path = Helpers/PhysicsTransitionManager.swift; sourceTree = "<group>"; };
+		0D233F601C655CBD00EE8C84 /* SignalCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignalCustomCell.xib; path = CustomViews/SignalCustomCell.xib; sourceTree = "<group>"; };
+		0D233F621C65612400EE8C84 /* SignalCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignalCustomCell.h; path = CustomViews/SignalCustomCell.h; sourceTree = "<group>"; };
+		0D233F631C65612400EE8C84 /* SignalCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignalCustomCell.m; path = CustomViews/SignalCustomCell.m; sourceTree = "<group>"; };
 		0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikAppFeedback.framework; path = Signal/TelerikAppFeedback.framework; sourceTree = "<group>"; };
 		0D5DC9051C63FAA700083A0B /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikUI.framework; path = Signal/TelerikUI.framework; sourceTree = "<group>"; };
 		0D7261731C6544FC004E55CE /* SideDrawerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideDrawerHeaderView.h; path = CustomViews/SideDrawerHeaderView.h; sourceTree = "<group>"; };
@@ -74,6 +79,9 @@
 			children = (
 				0D7261731C6544FC004E55CE /* SideDrawerHeaderView.h */,
 				0D7261741C6544FC004E55CE /* SideDrawerHeaderView.m */,
+				0D233F601C655CBD00EE8C84 /* SignalCustomCell.xib */,
+				0D233F621C65612400EE8C84 /* SignalCustomCell.h */,
+				0D233F631C65612400EE8C84 /* SignalCustomCell.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 			files = (
 				0DD170891C5FF22B00A39D7B /* LaunchScreen.storyboard in Resources */,
 				0DD170861C5FF22B00A39D7B /* Assets.xcassets in Resources */,
+				0D233F611C655CBD00EE8C84 /* SignalCustomCell.xib in Resources */,
 				0DD170811C5FF22B00A39D7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +302,7 @@
 				0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */,
 				0DD170781C5FF22B00A39D7B /* main.m in Sources */,
 				0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */,
+				0D233F641C65612400EE8C84 /* SignalCustomCell.m in Sources */,
 				0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */,
 				0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */,
 				0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */,

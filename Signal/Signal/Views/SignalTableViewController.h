@@ -15,7 +15,6 @@
 @property (strong, nonatomic) NSString *name;
 
 @property (nonatomic,strong) TKSideDrawerView *sideDrawerView;
-@property (nonatomic, strong) UINavigationItem *navItem;
 @property (nonatomic, strong) UIButton *searchButton;
 @property (nonatomic, strong) UITextField *searchField;
 @end

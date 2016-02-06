@@ -23,6 +23,7 @@
 @interface SignalTableViewController()
 @property(nonatomic,readonly) NSManagedObjectContext *managedContext;
 @property(nonatomic,strong) SignalCustomCell *customCell;
+@property(nonatomic,strong) UIButton *alertBtn;
 
 @end
 
@@ -32,6 +33,11 @@
     UITableView *_tableView;
     NSArray *_items;
     UINavigationItem *_navItem;
+    UIDynamicAnimator *_animator;
+    UIGravityBehavior *_gravity;
+    UICollisionBehavior *_collision;
+    UIDynamicItemBehavior *_itemBehaviour;
+    UIButton *holder;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -128,9 +134,12 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    _tableView.backgroundColor = [UIColor cyanColor];
+    _tableView.backgroundColor = [UIColor colorWithRed:0.424 green:0.565 blue:0.592 alpha:1];
     
     [_pageView addSubview:_tableView];
+    
+    //Add alert button
+    [self addAlertButtonWithTarget:self selector:@selector(showEmergencyDial)];
 }
 
 - (void)viewDidLayoutSubviews
@@ -179,6 +188,79 @@
     AddSignalViewController *addSignalVC =
     [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
     [self.navigationController pushViewController:addSignalVC animated:YES];
+}
+
+-(void) showEmergencyDial{
+    self.alertBtn.hidden = YES;
+    
+    
+    CGPoint rightEdge = CGPointMake(CGRectGetWidth(self.view.bounds) - 50, CGRectGetHeight(self.view.bounds) - 230);
+    CGPoint leftEdge = CGPointMake(CGRectGetWidth(self.view.bounds) - 350, CGRectGetHeight(self.view.bounds) - 230);
+    
+    holder = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.bounds) - 350, CGRectGetHeight(self.view.bounds), 320, 100)];
+    holder.backgroundColor = [UIColor colorWithRed:0.765 green:0.78 blue:0.78 alpha:1];
+    holder.layer.cornerRadius = 10;
+    [holder addTarget:self action:@selector(callEmergency) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIImageView *pic = [[UIImageView alloc] initWithFrame:CGRectMake(holder.bounds.origin.x + 20, holder.bounds.origin.y + 10, holder.frame.size.width /3.5, holder.frame.size.height - 20)];
+    pic.image =[UIImage imageNamed:@"emergency"];
+    [holder addSubview:pic];
+    
+    UILabel *text = [[UILabel alloc] initWithFrame:CGRectMake(holder.bounds.origin.x + 130, holder.bounds.origin.y + 10, holder.frame.size.width /2, holder.frame.size.height - 20)];
+    text.backgroundColor = [UIColor clearColor];
+    text.text = @"Call 112";
+    [text setFont:[UIFont fontWithName:@"TrebuchetMS-Bold" size:36]];
+    [text setCenter:text.center];
+    [holder addSubview:text];
+    
+    UIButton *close = [[UIButton alloc] initWithFrame:CGRectMake(holder.frame.size.width -28, holder.bounds.origin.y-7, 35, 35)];
+    [close.layer setCornerRadius:20];
+    [close setImage:[UIImage imageNamed:@"cancel"] forState:UIControlStateNormal];
+    close.backgroundColor = [UIColor redColor];
+    [close addTarget:self action:@selector(hideDial) forControlEvents:UIControlEventTouchDown];
+    [holder addSubview:close];
+    
+    [_pageView addSubview:holder];
+    
+    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:_pageView];
+    _gravity = [[UIGravityBehavior alloc] initWithItems:@[holder]];
+    _itemBehaviour = [[UIDynamicItemBehavior alloc] initWithItems:@[holder]];
+    _gravity.angle = 3* M_PI / 2;
+    _gravity.magnitude = 3;
+    
+    _collision = [[UICollisionBehavior alloc] initWithItems:@[holder]];
+    [_collision addBoundaryWithIdentifier:@"barrier"
+                                fromPoint:leftEdge
+                                  toPoint:rightEdge];
+    _collision.translatesReferenceBoundsIntoBoundary = NO;
+    
+    _itemBehaviour.elasticity = 0.6;
+    
+    [_animator addBehavior:_itemBehaviour];
+    [_animator addBehavior:_collision];
+    [_animator addBehavior:_gravity];
+}
+
+-(void)hideDial{
+    self.alertBtn.hidden = NO;
+    
+    CGPoint rightEdge = CGPointMake(CGRectGetWidth(self.view.bounds) - 50, CGRectGetHeight(self.view.bounds));
+    CGPoint leftEdge = CGPointMake(CGRectGetWidth(self.view.bounds) - 350, CGRectGetHeight(self.view.bounds));
+    
+    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:_pageView];
+    _gravity = [[UIGravityBehavior alloc] initWithItems:@[holder]];
+    [_collision addBoundaryWithIdentifier:@"barrier"
+                                fromPoint:leftEdge
+                                  toPoint:rightEdge];
+    _itemBehaviour.elasticity = 0.6;
+    
+    [_animator addBehavior:_itemBehaviour];
+    [_animator addBehavior:_collision];
+    [_animator addBehavior:_gravity];
+}
+
+-(void) callEmergency{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:112"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -240,6 +322,17 @@
     UIImageView *searchIcon = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x + 15, 0, self.view.bounds.size.width - (self.searchButton.bounds.size.width + self.searchField.bounds.size.width + 30), 30)];
     [searchIcon setImage:[UIImage imageNamed:@"search"]];
     [_pageView addSubview:searchIcon];
+}
+
+- (void)addAlertButtonWithTarget:(id)target selector:(SEL)selector
+{
+    
+    self.alertBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.bounds) - 60, CGRectGetHeight(self.view.bounds) - 200, 45, 45)];
+    [self.alertBtn.layer setCornerRadius:27.f];
+    self.alertBtn.backgroundColor = [UIColor clearColor];
+    [self.alertBtn setImage:[UIImage imageNamed:@"alertBtn"] forState:UIControlStateNormal];
+    [self.alertBtn addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+    [_pageView addSubview:self.alertBtn];
 }
 
 -(NSString*) getDate{

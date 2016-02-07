@@ -12,16 +12,18 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIPickerView *ctegoryPicker;
-@property (weak, nonatomic) IBOutlet UITextField *imageField;
 @property (weak, nonatomic) IBOutlet UITextField *locationField;
+@property (weak, nonatomic) IBOutlet UILabel *chooseLabel;
 
 @property (strong, nonatomic) NSString *latitude;
 @property (strong, nonatomic) NSString *longitude;
 @property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSString *country;
+@property (strong, nonatomic) UIImage *picture;
 
 - (IBAction)getCoordinates:(UIButton *)sender;
 - (IBAction)pickFile:(UIButton *)sender;
+- (IBAction)addSignal:(UIButton *)sender;
 
 @end
 
@@ -47,6 +49,9 @@
     self.textView.layer.borderWidth = 1.f;
     self.textView.layer.borderColor = [UIColor colorWithRed:0.765 green:0.78 blue:0.78 alpha:1].CGColor;
     self.textView.layer.cornerRadius = 6;
+    self.chooseLabel.layer.borderWidth = 1.f;
+    self.chooseLabel.layer.borderColor = [UIColor colorWithRed:0.765 green:0.78 blue:0.78 alpha:1].CGColor;
+    self.chooseLabel.layer.cornerRadius = 6;
 }
 
 -(void) showCameraButton {
@@ -74,8 +79,10 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-//    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-//    self.imageView.image = chosenImage;
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.picture = chosenImage;
+    self.chooseLabel.text = @"DONE";
+    self.chooseLabel.textColor = [UIColor colorWithRed:0.541 green:0.812 blue:0 alpha:1];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
@@ -92,6 +99,15 @@
 }
 
 - (IBAction)pickFile:(UIButton *)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (IBAction)addSignal:(UIButton *)sender {
 }
 
 - (IBAction)getCoordinates:(UIButton *)sender {

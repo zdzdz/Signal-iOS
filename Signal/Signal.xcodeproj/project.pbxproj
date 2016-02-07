@@ -15,6 +15,8 @@
 		0D233F611C655CBD00EE8C84 /* SignalCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D233F601C655CBD00EE8C84 /* SignalCustomCell.xib */; };
 		0D233F641C65612400EE8C84 /* SignalCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D233F631C65612400EE8C84 /* SignalCustomCell.m */; };
 		0D277FD21C66560E00D8A662 /* SignalDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D277FD11C66560E00D8A662 /* SignalDetailsViewController.m */; };
+		0D277FD41C66A35F00D8A662 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D277FD31C66A35F00D8A662 /* CoreLocation.framework */; };
+		0D277FD61C66B5C700D8A662 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D277FD51C66B5C700D8A662 /* MapViewController.swift */; };
 		0D5DC9061C63FAA700083A0B /* TelerikAppFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */; };
 		0D5DC9071C63FAA700083A0B /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5DC9051C63FAA700083A0B /* TelerikUI.framework */; };
 		0D7261751C6544FC004E55CE /* SideDrawerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7261741C6544FC004E55CE /* SideDrawerHeaderView.m */; };
@@ -44,6 +46,8 @@
 		0D233F631C65612400EE8C84 /* SignalCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignalCustomCell.m; path = CustomViews/SignalCustomCell.m; sourceTree = "<group>"; };
 		0D277FD01C66560E00D8A662 /* SignalDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignalDetailsViewController.h; path = Views/SignalDetailsViewController.h; sourceTree = "<group>"; };
 		0D277FD11C66560E00D8A662 /* SignalDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignalDetailsViewController.m; path = Views/SignalDetailsViewController.m; sourceTree = "<group>"; };
+		0D277FD31C66A35F00D8A662 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0D277FD51C66B5C700D8A662 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Views/MapViewController.swift; sourceTree = "<group>"; };
 		0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikAppFeedback.framework; path = Signal/TelerikAppFeedback.framework; sourceTree = "<group>"; };
 		0D5DC9051C63FAA700083A0B /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikUI.framework; path = Signal/TelerikUI.framework; sourceTree = "<group>"; };
 		0D7261731C6544FC004E55CE /* SideDrawerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideDrawerHeaderView.h; path = CustomViews/SideDrawerHeaderView.h; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D277FD41C66A35F00D8A662 /* CoreLocation.framework in Frameworks */,
 				0D5DC9061C63FAA700083A0B /* TelerikAppFeedback.framework in Frameworks */,
 				0D5DC9071C63FAA700083A0B /* TelerikUI.framework in Frameworks */,
 				7F93E4B4BAB7117EE083651C /* libPods-Signal.a in Frameworks */,
@@ -112,6 +117,7 @@
 				0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */,
 				0D277FD01C66560E00D8A662 /* SignalDetailsViewController.h */,
 				0D277FD11C66560E00D8A662 /* SignalDetailsViewController.m */,
+				0D277FD51C66B5C700D8A662 /* MapViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 		FDC5169DC6E61CC89773CBEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D277FD31C66A35F00D8A662 /* CoreLocation.framework */,
 				0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */,
 				0D5DC9051C63FAA700083A0B /* TelerikUI.framework */,
 				76C5DF430988F7034285FD56 /* libPods-Signal.a */,
@@ -308,6 +315,7 @@
 				0DD170781C5FF22B00A39D7B /* main.m in Sources */,
 				0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */,
 				0D233F641C65612400EE8C84 /* SignalCustomCell.m in Sources */,
+				0D277FD61C66B5C700D8A662 /* MapViewController.swift in Sources */,
 				0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */,
 				0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */,
 				0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */,

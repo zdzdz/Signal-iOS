@@ -53,7 +53,7 @@
         
         
         if([rootViewController isKindOfClass:[RegisterViewController class]]){
-            [self showAlert:@"Welcome" :@"You have successfully registered."];
+            [self showAlertWithTitle:@"Welcome" andMessage:@"You have successfully registered."];
         }
     } @catch(NSException *exception){
         
@@ -279,7 +279,7 @@
     [self.navigationController pushViewController:loginVC animated:YES];
 }
 
-- (void) showAlert: (NSString*) title :(NSString*) message{
+- (void) showAlertWithTitle: (NSString*) title andMessage:(NSString*) message{
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message

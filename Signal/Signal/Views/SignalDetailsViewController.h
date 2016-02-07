@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface SignalDetailsViewController : UIViewController
+@interface SignalDetailsViewController : UIViewController <CLLocationManagerDelegate>
 
 @end

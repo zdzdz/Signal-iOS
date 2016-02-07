@@ -36,12 +36,12 @@
 
 - (IBAction)registerBtn:(UIButton *)sender {
     if (self.passwordLabel.text != self.repeatPasswordLabel.text) {
-        [self showAlert:@"Warning" :@"Passwords do not match."];
+        [self showAlertWithTitle:@"Warning" andMessage:@"Passwords do not match."];
     }
     
     if (self.usernameLabel.text.length == 0 || self.passwordLabel.text.length == 0 || self.repeatPasswordLabel.text.length == 0) {
         
-        [self showAlert:@"Warning" :@"Fields cannot be empty."];
+        [self showAlertWithTitle:@"Warning" andMessage:@"Fields cannot be empty."];
     } else {
         PFUser *user = [PFUser user];
         user.username = self.usernameLabel.text;
@@ -58,7 +58,7 @@
                 [self saveToCoreData];
                 
             } else {   NSString *errorString = [error userInfo][@"error"];
-                [self showAlert:@"Error" :errorString];
+                [self showAlertWithTitle:@"Error" andMessage:errorString];
             }
         }];
         
@@ -97,7 +97,7 @@
     return managedContext;
 }
 
-- (void) showAlert: (NSString*) title :(NSString*) message{
+- (void) showAlertWithTitle: (NSString*) title andMessage:(NSString*) message{
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message

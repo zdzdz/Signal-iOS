@@ -123,6 +123,11 @@
     
     section = [sideDrawer addSectionWithTitle:@"Exit"];
     [section addItemWithTitle:@"Log out"];
+
+
+    UISwipeGestureRecognizer *rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showSideDrawer)];
+    rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.sideDrawerView.mainView addGestureRecognizer:rightSwipeGestureRecognizer];
     
     //Adding search bar
     [self addSearchBarWithTitle:@"Search" target:self selector:@selector(showSideDrawer)];
@@ -334,6 +339,7 @@
     self.alertBtn.backgroundColor = [UIColor clearColor];
     [self.alertBtn setImage:[UIImage imageNamed:@"alertBtn"] forState:UIControlStateNormal];
     [self.alertBtn addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+    
     [_pageView addSubview:self.alertBtn];
 }
 

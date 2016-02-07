@@ -5,13 +5,16 @@
 //  Created by Sam Son on 2/3/16.
 //  Copyright © 2016 zdzdz. All rights reserved.
 //
+#import <CoreData/CoreData.h>
 
 #import "AddSignalViewController.h"
+#import "Parse/Parse.h"
+#import "AppDelegate.h"
 
 @interface AddSignalViewController()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
-@property (weak, nonatomic) IBOutlet UIPickerView *ctegoryPicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
 @property (weak, nonatomic) IBOutlet UITextField *locationField;
 @property (weak, nonatomic) IBOutlet UILabel *chooseLabel;
 
@@ -20,6 +23,9 @@
 @property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSString *country;
 @property (strong, nonatomic) UIImage *picture;
+@property(nonatomic,readonly) NSManagedObjectContext *managedContext;
+@property (strong, nonatomic) NSArray *pickerData;
+@property (strong, nonatomic) NSString *category;
 
 - (IBAction)getCoordinates:(UIButton *)sender;
 - (IBAction)pickFile:(UIButton *)sender;
@@ -31,6 +37,7 @@
     CLGeocoder *_geocoder;
     CLPlacemark *_placemark;
     CLLocationManager *_locationManager;
+    NSString *_currentUser;
 }
 
 
@@ -46,12 +53,90 @@
     self.title = @"Add a signal";
     self.navigationItem.rightBarButtonItem = cameraBarButton;
     
+    self.pickerData = [NSArray arrayWithObjects:@"Choose", @"Accident",@"Crime", @"For repair", @"Danger", @"Speeding", @"Other", nil];
+    
+    self.categoryPicker.dataSource = self;
+    self.categoryPicker.delegate = self;
+    
     self.textView.layer.borderWidth = 1.f;
     self.textView.layer.borderColor = [UIColor colorWithRed:0.765 green:0.78 blue:0.78 alpha:1].CGColor;
     self.textView.layer.cornerRadius = 6;
     self.chooseLabel.layer.borderWidth = 1.f;
     self.chooseLabel.layer.borderColor = [UIColor colorWithRed:0.765 green:0.78 blue:0.78 alpha:1].CGColor;
     self.chooseLabel.layer.cornerRadius = 6;
+    
+    //Opening sqlite db
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Profile" inManagedObjectContext:self.managedContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *userName in fetchedObjects) {
+        _currentUser = [userName valueForKey:@"name"];
+    }
+}
+
+-(NSManagedObjectContext*)managedContext{
+    NSManagedObjectContext *managedContext =
+    [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    return managedContext;
+}
+
+-(NSString*) getDate{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy.MM.dd"];
+    
+    NSString *stringFromDate = [formatter stringFromDate:[[NSDate alloc] init]];
+    
+    return stringFromDate;
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.pickerData.count;
+}
+
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    
+    UILabel *lbTitle = [[UILabel alloc] init];
+    [lbTitle setText:[NSString stringWithFormat:@"%@", self.pickerData[row]]];
+    [lbTitle setFont:[UIFont fontWithName:@"Arial" size:17.0]];
+    [lbTitle setTextAlignment:NSTextAlignmentCenter];
+    
+    return lbTitle;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    
+    switch(row) {
+        case 1:
+            self.category = @"Accident";
+            break;
+        case 2:
+            self.category = @"Crime";
+            break;
+        case 3:
+            self.category = @"For repair";
+            break;
+        case 4:
+            self.category = @"Danger";
+            break;
+        case 5:
+            self.category = @"Speeding";
+            break;
+        case 6:
+            self.category = @"Other";
+            break;
+        default:
+            self.category = @"Unknown";
+    }
 }
 
 -(void) showCameraButton {

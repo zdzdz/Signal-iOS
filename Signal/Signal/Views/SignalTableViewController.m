@@ -30,7 +30,7 @@
 @end
 
 @implementation SignalTableViewController{
-    NSString *_currentName;
+    NSString *_currentUser;
     UIView *_pageView;
     UITableView *_tableView;
     NSArray *_items;
@@ -81,7 +81,7 @@
     NSError *error;
     NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
     for (NSManagedObject *userName in fetchedObjects) {
-        _currentName = [userName valueForKey:@"name"];
+        _currentUser = [userName valueForKey:@"name"];
     }
 
     //Adding side drawer
@@ -118,14 +118,14 @@
     //sideDrawer.transition = TKSideDrawerTransitionTypePush;
     sideDrawer.delegate = self;
     
-    TKSideDrawerSection *section = [sideDrawer addSectionWithTitle:[NSString stringWithFormat:@"Hello, %@", _currentName]];
+    TKSideDrawerSection *section = [sideDrawer addSectionWithTitle:[NSString stringWithFormat:@"Hello, %@", _currentUser]];
     [section addItemWithTitle:@"Profile"];
     [section addItemWithTitle:@"About"];
     
     section = [sideDrawer addSectionWithTitle:@"Exit"];
     [section addItemWithTitle:@"Log out"];
 
-
+    //Swipe gesture detection
     UISwipeGestureRecognizer *rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showSideDrawer)];
     rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.sideDrawerView.mainView addGestureRecognizer:rightSwipeGestureRecognizer];

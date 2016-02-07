@@ -178,8 +178,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="categoryPicker" destination="ktS-MA-lPt" id="7kd-Lm-NxH"/>
                         <outlet property="chooseLabel" destination="q68-NB-FIw" id="v0o-s8-k7n"/>
-                        <outlet property="ctegoryPicker" destination="ktS-MA-lPt" id="TmS-Hq-55A"/>
                         <outlet property="locationField" destination="jGm-Jx-q4z" id="4do-5j-zJ3"/>
                         <outlet property="textView" destination="i3M-Ch-8TW" id="OPa-Wu-AQK"/>
                         <outlet property="titleTextField" destination="2Et-hr-HAg" id="ifX-Gb-sEE"/>

@@ -16,6 +16,7 @@
 #import "SignalDetailsViewController.h"
 #import "SignalCustomCell.h"
 #import "AboutViewController.h"
+#import "ProfileViewController.h"
 
 #import "SideDrawerHeaderView.h"
 
@@ -195,6 +196,14 @@
         [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
         [self.navigationController pushViewController:aboutVC animated:YES];
     }
+    
+    if ((int)indexPath.section == 0 && (int)indexPath.row == 0){
+        NSString *storyBoardId = @"ProfileID";
+        
+        ProfileViewController *profileVC =
+        [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
+        [self.navigationController pushViewController:profileVC animated:YES];
+    }
 }
 
 -(void) showAddButton {
@@ -276,7 +285,11 @@
 }
 
 -(void) callEmergency{
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"telprompt://"]]) {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt:112"]];
+    } else {
+        [self showAlertWithTitle:@"Error" andMessage:@"Device cannot make calls"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

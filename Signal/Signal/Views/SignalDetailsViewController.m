@@ -95,11 +95,19 @@
 #pragma mark - IBAction
 
 - (IBAction)phoneButton:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@", self.numberLabel.text]]];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"telprompt://"]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@", self.numberLabel.text]]];
+    } else {
+        [self showAlertWithTitle:@"Error" andMessage:@"Device cannot make calls"];
+    }
 }
 
 - (IBAction)emailButton:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", self.emailLabel.text]]];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"telprompt://"]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", self.emailLabel.text]]];
+    } else {
+        [self showAlertWithTitle:@"Error" andMessage:@"Device cannot send emails"];
+    }
 }
 
 - (IBAction)gpsButton:(UIButton *)sender {

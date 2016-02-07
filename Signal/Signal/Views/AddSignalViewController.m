@@ -150,16 +150,7 @@
         
         [self presentViewController:picker animated:YES completion:NULL];
     } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                       message:@"Device has no camera"
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-            
-        }];
-        
-        [alert addAction:defaultAction];
-        
-        [self presentViewController:alert animated:YES completion:nil];
+        [self showAlertWithTitle:@"Error" andMessage:@"Device has no camera"];
     }
 }
 

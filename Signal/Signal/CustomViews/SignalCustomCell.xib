@@ -58,9 +58,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qpt-ty-n9T">
-                        <rect key="frame" x="8" y="8" width="304" height="185"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pesho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kG6-sB-jPh">
                         <rect key="frame" x="211" y="250" width="90" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
@@ -76,6 +73,9 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qpt-ty-n9T">
+                        <rect key="frame" x="8" y="8" width="304" height="185"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Mri-9C-YRE" firstAttribute="firstBaseline" secondItem="aI7-Ln-ENX" secondAttribute="firstBaseline" id="0Y8-Ow-izH"/>

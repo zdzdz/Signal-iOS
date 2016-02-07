@@ -457,24 +457,24 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 }
 
 - (void)operationDidStart {
-    [self.lock lock];
-    if (![self isCancelled]) {
-        self.connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self startImmediately:NO];
-
-        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-        for (NSString *runLoopMode in self.runLoopModes) {
-            [self.connection scheduleInRunLoop:runLoop forMode:runLoopMode];
-            [self.outputStream scheduleInRunLoop:runLoop forMode:runLoopMode];
-        }
-
-        [self.outputStream open];
-        [self.connection start];
-    }
-    [self.lock unlock];
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:AFNetworkingOperationDidStartNotification object:self];
-    });
+//    [self.lock lock];
+//    if (![self isCancelled]) {
+//        self.connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self startImmediately:NO];
+//
+//        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+//        for (NSString *runLoopMode in self.runLoopModes) {
+//            [self.connection scheduleInRunLoop:runLoop forMode:runLoopMode];
+//            [self.outputStream scheduleInRunLoop:runLoop forMode:runLoopMode];
+//        }
+//
+//        [self.outputStream open];
+//        [self.connection start];
+//    }
+//    [self.lock unlock];
+//
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [[NSNotificationCenter defaultCenter] postNotificationName:AFNetworkingOperationDidStartNotification object:self];
+//    });
 }
 
 - (void)finish {

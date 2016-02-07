@@ -27,6 +27,7 @@
 		0DD170841C5FF22B00A39D7B /* Signal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170821C5FF22B00A39D7B /* Signal.xcdatamodeld */; };
 		0DD170861C5FF22B00A39D7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD170851C5FF22B00A39D7B /* Assets.xcassets */; };
 		0DD170891C5FF22B00A39D7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD170871C5FF22B00A39D7B /* LaunchScreen.storyboard */; };
+		0DDF977C1C67551800F20CC9 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF977B1C67551800F20CC9 /* AboutViewController.m */; };
 		7F93E4B4BAB7117EE083651C /* libPods-Signal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C5DF430988F7034285FD56 /* libPods-Signal.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		0DD170851C5FF22B00A39D7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DD170881C5FF22B00A39D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DD1708A1C5FF22B00A39D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DDF977A1C67551800F20CC9 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Views/AboutViewController.h; sourceTree = "<group>"; };
+		0DDF977B1C67551800F20CC9 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Views/AboutViewController.m; sourceTree = "<group>"; };
 		6A4B1C8E17DF58487E50C5E6 /* Pods-Signal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Signal/Pods-Signal.debug.xcconfig"; sourceTree = "<group>"; };
 		76C5DF430988F7034285FD56 /* libPods-Signal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Signal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -118,6 +121,8 @@
 				0D277FD01C66560E00D8A662 /* SignalDetailsViewController.h */,
 				0D277FD11C66560E00D8A662 /* SignalDetailsViewController.m */,
 				0D277FD51C66B5C700D8A662 /* MapViewController.swift */,
+				0DDF977A1C67551800F20CC9 /* AboutViewController.h */,
+				0DDF977B1C67551800F20CC9 /* AboutViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */,
 				0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */,
 				0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */,
+				0DDF977C1C67551800F20CC9 /* AboutViewController.m in Sources */,
 				0D0C2E061C626AE5001E6C35 /* SignalTableViewController.m in Sources */,
 				0D7261751C6544FC004E55CE /* SideDrawerHeaderView.m in Sources */,
 				0D277FD21C66560E00D8A662 /* SignalDetailsViewController.m in Sources */,

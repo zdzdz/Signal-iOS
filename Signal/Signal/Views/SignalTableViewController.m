@@ -15,6 +15,7 @@
 #import "RegisterViewController.h"
 #import "SignalDetailsViewController.h"
 #import "SignalCustomCell.h"
+#import "AboutViewController.h"
 
 #import "SideDrawerHeaderView.h"
 
@@ -186,6 +187,14 @@
         [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
         [self.navigationController pushViewController:loginVC animated:YES];
     }
+    
+    if ((int)indexPath.section == 0 && (int)indexPath.row == 1){
+        NSString *storyBoardId = @"AboutID";
+        
+        AboutViewController *aboutVC =
+        [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
+        [self.navigationController pushViewController:aboutVC animated:YES];
+    }
 }
 
 -(void) showAddButton {
@@ -318,7 +327,7 @@
     [self.searchButton addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     [_pageView addSubview:self.searchButton];
     
-    self.searchField = [[UITextField alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x + 50, 0, self.view.bounds.size.width - (self.searchButton.bounds.size.width + 60),30)];
+    self.searchField = [[UISearchBar alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x + 50, 0, self.view.bounds.size.width - (self.searchButton.bounds.size.width + 60),30)];
     self.searchField.backgroundColor = [UIColor clearColor];
     self.searchField.placeholder = @"Search here";
     [self.searchField.layer setBorderWidth:1];

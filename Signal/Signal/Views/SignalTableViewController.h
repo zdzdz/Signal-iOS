@@ -16,5 +16,5 @@
 
 @property (nonatomic,strong) TKSideDrawerView *sideDrawerView;
 @property (nonatomic, strong) UIButton *searchButton;
-@property (nonatomic, strong) UITextField *searchField;
+@property (nonatomic, strong) UISearchBar *searchField;
 @end

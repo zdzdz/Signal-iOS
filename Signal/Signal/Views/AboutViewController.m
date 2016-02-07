@@ -10,13 +10,37 @@
 
 @interface AboutViewController ()
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation AboutViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"About";
+    
+    NSString* embedHTML = [NSString stringWithFormat:@"\
+                           <html>\
+                           <body style='margin:0px;padding:0px;'>\
+                           <script type='text/javascript' src='http://www.youtube.com/iframe_api'></script>\
+                           <script type='text/javascript'>\
+                           function onYouTubeIframeAPIReady()\
+                           {\
+                           ytplayer=new YT.Player('playerId',{events:{onReady:onPlayerReady}})\
+                           }\
+                           function onPlayerReady(a)\
+                           { \
+                           a.target.playVideo(); \
+                           }\
+                           </script>\
+                           <iframe id='playerId' type='text/html' width='%d' height='%d' src='http://www.youtube.com/embed/%@?enablejsapi=1&rel=0&playsinline=1&autoplay=1' frameborder='0'>\
+                           </body>\
+                           </html>", 340, 240, @"JW5meKfy3fY"];
+    
+    [self.webView loadHTMLString:embedHTML baseURL:[[NSBundle mainBundle] resourceURL]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +48,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

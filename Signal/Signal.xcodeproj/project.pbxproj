@@ -10,7 +10,7 @@
 		0D0C2E061C626AE5001E6C35 /* SignalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E051C626AE5001E6C35 /* SignalTableViewController.m */; };
 		0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */; };
 		0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */; };
-		0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D12F5BD1C635E890060E630 /* ImageViewController.swift */; };
+		0D230DDF1C67D5600050D9B4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D230DDE1C67D5600050D9B4 /* libsqlite3.dylib */; };
 		0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D233F5E1C6545CF00EE8C84 /* PhysicsTransitionManager.swift */; };
 		0D233F611C655CBD00EE8C84 /* SignalCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D233F601C655CBD00EE8C84 /* SignalCustomCell.xib */; };
 		0D233F641C65612400EE8C84 /* SignalCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D233F631C65612400EE8C84 /* SignalCustomCell.m */; };
@@ -24,7 +24,6 @@
 		0DD170781C5FF22B00A39D7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170771C5FF22B00A39D7B /* main.m */; };
 		0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1707A1C5FF22B00A39D7B /* AppDelegate.m */; };
 		0DD170811C5FF22B00A39D7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD1707F1C5FF22B00A39D7B /* Main.storyboard */; };
-		0DD170841C5FF22B00A39D7B /* Signal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DD170821C5FF22B00A39D7B /* Signal.xcdatamodeld */; };
 		0DD170861C5FF22B00A39D7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD170851C5FF22B00A39D7B /* Assets.xcassets */; };
 		0DD170891C5FF22B00A39D7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD170871C5FF22B00A39D7B /* LaunchScreen.storyboard */; };
 		0DDF977C1C67551800F20CC9 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF977B1C67551800F20CC9 /* AboutViewController.m */; };
@@ -40,7 +39,7 @@
 		0D0C2E0A1C626BC2001E6C35 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Views/RegisterViewController.h; sourceTree = "<group>"; };
 		0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Views/RegisterViewController.m; sourceTree = "<group>"; };
 		0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Signal-Bridging-Header.h"; sourceTree = "<group>"; };
-		0D12F5BD1C635E890060E630 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = Views/ImageViewController.swift; sourceTree = "<group>"; };
+		0D230DDE1C67D5600050D9B4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		0D233F5E1C6545CF00EE8C84 /* PhysicsTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhysicsTransitionManager.swift; path = Helpers/PhysicsTransitionManager.swift; sourceTree = "<group>"; };
 		0D233F601C655CBD00EE8C84 /* SignalCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignalCustomCell.xib; path = CustomViews/SignalCustomCell.xib; sourceTree = "<group>"; };
 		0D233F621C65612400EE8C84 /* SignalCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignalCustomCell.h; path = CustomViews/SignalCustomCell.h; sourceTree = "<group>"; };
@@ -60,7 +59,6 @@
 		0DD170791C5FF22B00A39D7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0DD1707A1C5FF22B00A39D7B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0DD170801C5FF22B00A39D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0DD170831C5FF22B00A39D7B /* Signal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Signal.xcdatamodel; sourceTree = "<group>"; };
 		0DD170851C5FF22B00A39D7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DD170881C5FF22B00A39D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DD1708A1C5FF22B00A39D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D230DDF1C67D5600050D9B4 /* libsqlite3.dylib in Frameworks */,
 				0D277FD41C66A35F00D8A662 /* CoreLocation.framework in Frameworks */,
 				0D5DC9061C63FAA700083A0B /* TelerikAppFeedback.framework in Frameworks */,
 				0D5DC9071C63FAA700083A0B /* TelerikUI.framework in Frameworks */,
@@ -116,7 +115,6 @@
 				0D0C2E081C626B62001E6C35 /* AddSignalViewController.m */,
 				0D0C2E0A1C626BC2001E6C35 /* RegisterViewController.h */,
 				0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */,
-				0D12F5BD1C635E890060E630 /* ImageViewController.swift */,
 				0D12F5BC1C635E890060E630 /* Signal-Bridging-Header.h */,
 				0D277FD01C66560E00D8A662 /* SignalDetailsViewController.h */,
 				0D277FD11C66560E00D8A662 /* SignalDetailsViewController.m */,
@@ -157,7 +155,6 @@
 				0DD170851C5FF22B00A39D7B /* Assets.xcassets */,
 				0DD170871C5FF22B00A39D7B /* LaunchScreen.storyboard */,
 				0DD1708A1C5FF22B00A39D7B /* Info.plist */,
-				0DD170821C5FF22B00A39D7B /* Signal.xcdatamodeld */,
 				0DD170761C5FF22B00A39D7B /* Supporting Files */,
 			);
 			path = Signal;
@@ -183,6 +180,7 @@
 		FDC5169DC6E61CC89773CBEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D230DDE1C67D5600050D9B4 /* libsqlite3.dylib */,
 				0D277FD31C66A35F00D8A662 /* CoreLocation.framework */,
 				0D5DC9041C63FAA700083A0B /* TelerikAppFeedback.framework */,
 				0D5DC9051C63FAA700083A0B /* TelerikUI.framework */,
@@ -315,7 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D9A0D501C6269BA00373AA7 /* LoginViewController.m in Sources */,
-				0DD170841C5FF22B00A39D7B /* Signal.xcdatamodeld in Sources */,
 				0DD1707B1C5FF22B00A39D7B /* AppDelegate.m in Sources */,
 				0DD170781C5FF22B00A39D7B /* main.m in Sources */,
 				0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */,
@@ -323,7 +320,6 @@
 				0D277FD61C66B5C700D8A662 /* MapViewController.swift in Sources */,
 				0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */,
 				0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */,
-				0D12F5BE1C635E890060E630 /* ImageViewController.swift in Sources */,
 				0DDF977C1C67551800F20CC9 /* AboutViewController.m in Sources */,
 				0D0C2E061C626AE5001E6C35 /* SignalTableViewController.m in Sources */,
 				0D7261751C6544FC004E55CE /* SideDrawerHeaderView.m in Sources */,
@@ -496,19 +492,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0DD170821C5FF22B00A39D7B /* Signal.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0DD170831C5FF22B00A39D7B /* Signal.xcdatamodel */,
-			);
-			currentVersion = 0DD170831C5FF22B00A39D7B /* Signal.xcdatamodel */;
-			path = Signal.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0DD1706B1C5FF22B00A39D7B /* Project object */;
 }

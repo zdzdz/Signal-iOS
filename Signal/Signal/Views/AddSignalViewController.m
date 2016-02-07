@@ -38,6 +38,7 @@
     CLPlacemark *_placemark;
     CLLocationManager *_locationManager;
     NSString *_currentUser;
+    NSData *_imageData;
 }
 
 
@@ -165,10 +166,10 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
     self.picture = chosenImage;
     self.chooseLabel.text = @"DONE";
     self.chooseLabel.textColor = [UIColor colorWithRed:0.541 green:0.812 blue:0 alpha:1];
-    
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
@@ -193,6 +194,42 @@
 }
 
 - (IBAction)addSignal:(UIButton *)sender {
+    
+    if (self.titleTextField.text.length == 0 || self.textView.text.length == 0) {
+        [self showAlertWithTitle:@"Warning" andMessage:@"You have insert a title and description."];
+    } else if([self category].length == 0){
+        [self showAlertWithTitle:@"Warning" andMessage:@"Please choose a category"];
+    }
+    else {
+        if(self.picture == nil){
+            _imageData = UIImagePNGRepresentation([UIImage imageNamed:@"no-foto"]);
+        } else {
+            _imageData = UIImagePNGRepresentation(self.picture);
+        }
+        PFFile *imageFile = [PFFile fileWithName:@"image.png" data: _imageData];
+        
+        PFObject *signal = [PFObject objectWithClassName:@"Signal"];
+        signal[@"title"] = self.titleTextField.text;
+        signal[@"category"] = [self category];
+        signal[@"description"] = self.textView.text;
+        signal[@"latitude"] = self.latitude;
+        signal[@"longitude"] = self.longitude;
+        signal[@"username"] = _currentUser;
+        signal[@"addedOn"] = [self getDate];
+        signal[@"picture"] = imageFile;
+        
+        [self showLoader];
+        [signal pinInBackground];
+        [signal saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            if (succeeded) {
+                [self.navigationController popViewControllerAnimated:YES];
+            } else {
+                [signal saveEventually];
+                NSString *errorString = [error userInfo][@"error"];
+                [self showAlertWithTitle:@"Error" andMessage:errorString];
+            }
+        }];
+    }
 }
 
 - (IBAction)getCoordinates:(UIButton *)sender {
@@ -247,5 +284,14 @@
     [alert addAction:defaultAction];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void) showLoader{
+    [self.view setUserInteractionEnabled:NO];
+    UIActivityIndicatorView *loader = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    loader.center = self.view.center;
+    loader.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:loader];
+    [loader startAnimating];
 }
 @end

@@ -6,6 +6,6 @@ workspace 'Signal'
 target 'Signal' do
 
 pod 'Parse'
-
+pod 'FSImageViewer', '~> 3.4'
 end
 

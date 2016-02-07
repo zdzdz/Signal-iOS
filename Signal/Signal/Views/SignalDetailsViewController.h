@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface SignalDetailsViewController : UIViewController <CLLocationManagerDelegate>
+#import "FSImageViewerViewController.h"
+
+@interface SignalDetailsViewController : UIViewController <CLLocationManagerDelegate, FSImageViewerViewControllerDelegate>
+
+@property(strong, nonatomic) FSImageViewerViewController *imageViewController;
 
 @end

@@ -7,6 +7,10 @@
 //
 
 #import "SignalDetailsViewController.h"
+
+#import "FSBasicImage.h"
+#import "FSBasicImageSource.h"
+
 #import "Signal-Swift.h"
 
 @interface SignalDetailsViewController ()
@@ -39,6 +43,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Details";
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    [self.pictureView setUserInteractionEnabled:YES];
+    [self.pictureView addGestureRecognizer:singleTap];
     
 }
 
@@ -121,4 +130,22 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+-(void)tapDetected{
+    FSBasicImage *firstPhoto = [[FSBasicImage alloc] initWithImage:self.pictureView.image name:@"Signal image"];
+    
+    FSBasicImageSource *photoSource = [[FSBasicImageSource alloc] initWithImages:@[firstPhoto]];
+    self.imageViewController = [[FSImageViewerViewController alloc] initWithImageSource:photoSource];
+    
+    _imageViewController.delegate = self;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:_imageViewController];
+        [self.navigationController presentViewController:navigationController animated:YES completion:nil];
+    }
+    else {
+        [self.navigationController pushViewController:_imageViewController animated:YES];
+    }
+}
+
 @end

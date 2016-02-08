@@ -52,7 +52,7 @@
     
     PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
     [dataQuery whereKey:@"username" containsString:_currentUser];
-    [dataQuery fromLocalDatastore];
+    //[dataQuery fromLocalDatastore];
     [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
         [self.signalsTable reloadData];

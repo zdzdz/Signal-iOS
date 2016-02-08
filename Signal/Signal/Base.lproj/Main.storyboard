@@ -507,10 +507,10 @@
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w0L-BI-0mw">
-                                <rect key="frame" x="20" y="413" width="560" height="167"/>
+                                <rect key="frame" x="20" y="399" width="560" height="181"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="167" id="hYZ-Pf-LWe"/>
+                                    <constraint firstAttribute="height" constant="181" id="hYZ-Pf-LWe"/>
                                 </constraints>
                                 <string key="text">Signal is a iOS application intended to help people share what they think is inappropriate, report a crime or alert authorities is case of an accident.
 
@@ -523,7 +523,7 @@ If someone sees something that he thinks is not correct and deserves to be expos
                         <constraints>
                             <constraint firstItem="xAI-K8-Gj2" firstAttribute="leading" secondItem="xDx-ua-TTq" secondAttribute="leadingMargin" id="2zn-b7-tNA"/>
                             <constraint firstItem="pfU-vO-Tbh" firstAttribute="leading" secondItem="xAI-K8-Gj2" secondAttribute="leading" id="CdB-23-rpb"/>
-                            <constraint firstItem="w0L-BI-0mw" firstAttribute="top" secondItem="xAI-K8-Gj2" secondAttribute="bottom" constant="13" id="GUl-wO-Ir1"/>
+                            <constraint firstItem="w0L-BI-0mw" firstAttribute="top" secondItem="xAI-K8-Gj2" secondAttribute="bottom" constant="-1" id="GUl-wO-Ir1"/>
                             <constraint firstItem="pfU-vO-Tbh" firstAttribute="trailing" secondItem="xDx-ua-TTq" secondAttribute="trailingMargin" id="Ghn-U3-DnH"/>
                             <constraint firstItem="pfU-vO-Tbh" firstAttribute="top" secondItem="lVA-gN-oci" secondAttribute="bottom" constant="8" symbolic="YES" id="K56-pU-NGn"/>
                             <constraint firstItem="w0L-BI-0mw" firstAttribute="leading" secondItem="xAI-K8-Gj2" secondAttribute="leading" id="Odq-8p-5Rd"/>

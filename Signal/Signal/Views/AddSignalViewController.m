@@ -279,8 +279,9 @@
 
 -(void) showLoader{
     [self.view setUserInteractionEnabled:NO];
-    UIActivityIndicatorView *loader = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    UIActivityIndicatorView *loader = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
     loader.center = self.view.center;
+    loader.transform = CGAffineTransformMakeScale(1.5, 1.5);
     loader.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:loader];
     [loader startAnimating];

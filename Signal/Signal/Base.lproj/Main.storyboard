@@ -496,7 +496,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by zdzdz©" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfU-vO-Tbh">
                                 <rect key="frame" x="20" y="28" width="560" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="KET-Rn-1pq"/>
+                                    <constraint firstAttribute="height" constant="60" id="pEp-Lr-wPZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -506,16 +506,31 @@
                                 <rect key="frame" x="20" y="96" width="560" height="304"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w0L-BI-0mw">
+                                <rect key="frame" x="20" y="413" width="560" height="167"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="167" id="hYZ-Pf-LWe"/>
+                                </constraints>
+                                <string key="text">Signal is a iOS application intended to help people share what they think is inappropriate, report a crime or alert authorities is case of an accident.
+
+If someone sees something that he thinks is not correct and deserves to be exposed, he/she can take a picture and leave a comment so that many other can see it. Other times they can be a witness of a crime of sorts and take visual material as an evidence. In such cases or cases of an accident, they can immediately report it to the authorities.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xAI-K8-Gj2" firstAttribute="leading" secondItem="pfU-vO-Tbh" secondAttribute="leading" id="1kR-bB-UEh"/>
-                            <constraint firstItem="pfU-vO-Tbh" firstAttribute="top" secondItem="lVA-gN-oci" secondAttribute="bottom" constant="8" symbolic="YES" id="9Bt-wd-ccu"/>
-                            <constraint firstItem="Ff2-Hs-TFQ" firstAttribute="top" secondItem="xAI-K8-Gj2" secondAttribute="bottom" constant="200" id="A7Y-py-Rx6"/>
-                            <constraint firstItem="pfU-vO-Tbh" firstAttribute="trailing" secondItem="xDx-ua-TTq" secondAttribute="trailingMargin" id="E1v-Ly-Mh5"/>
-                            <constraint firstItem="xAI-K8-Gj2" firstAttribute="leading" secondItem="xDx-ua-TTq" secondAttribute="leadingMargin" id="P8h-LF-8DO"/>
-                            <constraint firstItem="xAI-K8-Gj2" firstAttribute="trailing" secondItem="pfU-vO-Tbh" secondAttribute="trailing" id="dlE-8e-fpT"/>
-                            <constraint firstItem="xAI-K8-Gj2" firstAttribute="top" secondItem="pfU-vO-Tbh" secondAttribute="bottom" constant="8" symbolic="YES" id="fnn-6K-EPe"/>
+                            <constraint firstItem="xAI-K8-Gj2" firstAttribute="leading" secondItem="xDx-ua-TTq" secondAttribute="leadingMargin" id="2zn-b7-tNA"/>
+                            <constraint firstItem="pfU-vO-Tbh" firstAttribute="leading" secondItem="xAI-K8-Gj2" secondAttribute="leading" id="CdB-23-rpb"/>
+                            <constraint firstItem="w0L-BI-0mw" firstAttribute="top" secondItem="xAI-K8-Gj2" secondAttribute="bottom" constant="13" id="GUl-wO-Ir1"/>
+                            <constraint firstItem="pfU-vO-Tbh" firstAttribute="trailing" secondItem="xDx-ua-TTq" secondAttribute="trailingMargin" id="Ghn-U3-DnH"/>
+                            <constraint firstItem="pfU-vO-Tbh" firstAttribute="top" secondItem="lVA-gN-oci" secondAttribute="bottom" constant="8" symbolic="YES" id="K56-pU-NGn"/>
+                            <constraint firstItem="w0L-BI-0mw" firstAttribute="leading" secondItem="xAI-K8-Gj2" secondAttribute="leading" id="Odq-8p-5Rd"/>
+                            <constraint firstItem="xAI-K8-Gj2" firstAttribute="top" secondItem="pfU-vO-Tbh" secondAttribute="bottom" constant="8" symbolic="YES" id="aYq-x2-REH"/>
+                            <constraint firstItem="xAI-K8-Gj2" firstAttribute="trailing" secondItem="w0L-BI-0mw" secondAttribute="trailing" id="rRs-UD-4L3"/>
+                            <constraint firstAttribute="bottom" secondItem="w0L-BI-0mw" secondAttribute="bottom" constant="20" symbolic="YES" id="u0T-XV-VbN"/>
+                            <constraint firstItem="xAI-K8-Gj2" firstAttribute="trailing" secondItem="pfU-vO-Tbh" secondAttribute="trailing" id="yvf-a8-lL5"/>
                         </constraints>
                     </view>
                     <connections>

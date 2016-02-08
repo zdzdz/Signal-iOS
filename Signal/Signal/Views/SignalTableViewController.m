@@ -64,7 +64,8 @@
     
     PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
     //dataQuery.limit = 10;
-    [dataQuery fromLocalDatastore];
+    [dataQuery orderByDescending:@"createdAt"];
+    //[dataQuery fromLocalDatastore];
     [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
         [_tableView reloadData];
@@ -237,7 +238,8 @@
     [dateCreatedQuery whereKey:@"addedOn" containsString:self.searchField.text];
     
     PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[userQuery ,categoryQuery, descriptionQuery, titleQuery, dateCreatedQuery]];
-    [mainQuery fromLocalDatastore];
+    [mainQuery orderByDescending:@"createdAt"];
+    //[mainQuery fromLocalDatastore];
     [mainQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
         [_tableView reloadData];
@@ -388,7 +390,8 @@
     if([self.searchField isFirstResponder]) {
         PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
         //dataQuery.limit = 10;
-        [dataQuery fromLocalDatastore];
+        [dataQuery orderByDescending:@"createdAt"];
+        //[dataQuery fromLocalDatastore];
         [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
             self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
             [_tableView reloadData];

@@ -52,15 +52,15 @@
     
     PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
     [dataQuery whereKey:@"username" containsString:_currentUser];
-    
+    [dataQuery fromLocalDatastore];
     [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
         [self.signalsTable reloadData];
     }];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"ProfilePicture"];
-    [query whereKey:@"userName" containsString:_currentUser];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+    PFQuery *imageQuery = [PFQuery queryWithClassName:@"ProfilePicture"];
+    [imageQuery whereKey:@"userName" containsString:_currentUser];
+    [imageQuery getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         if (!object) {
             
         }

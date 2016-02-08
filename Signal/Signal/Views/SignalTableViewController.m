@@ -27,6 +27,7 @@
 @property(nonatomic,readonly) NSManagedObjectContext *managedContext;
 @property(nonatomic,strong) SignalCustomCell *customCell;
 @property(nonatomic,strong) UIButton *alertBtn;
+@property(nonatomic,strong) NSMutableArray *fetchedData;
 
 @end
 
@@ -60,6 +61,13 @@
     } @catch(NSException *exception){
         
     }
+    
+    PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
+    //[dataQuery fromLocalDatastore];
+    [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
+        [_tableView reloadData];
+    }];
 }
 
 - (void)viewDidLoad {
@@ -136,7 +144,7 @@
     
     //Adding tableview
     
-    _items = [[NSArray alloc] initWithObjects:@"Item", @"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",nil];
+//    _items = [[NSArray alloc] initWithObjects:@"Item", @"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",nil];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.searchField.bounds.size.height + 10, self.view.bounds.size.width, self.view.bounds.size.height - (self.searchField.bounds.size.height + 140)) style:UITableViewStylePlain];
     
     _tableView.delegate = self;
@@ -392,7 +400,7 @@
 #pragma mark - UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.fetchedData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -409,27 +417,27 @@
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(SignalCustomCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    cell.cellTitle.text = @"Traffic accident";
-    cell.cellCategory.text = @"Accident";
-    cell.cellAuthor.text = @"Pesho";
-    cell.cellDate.text = [self getDate];
-    cell.cellImage.image = [UIImage imageNamed:@"car-accident"];
+    PFObject *fetchedSignal = [self.fetchedData objectAtIndex:indexPath.row];
+    
+    //NSLog(@"%@", fetchedSignal);
+    
+    cell.cellTitle.text = [fetchedSignal objectForKey:@"title"];
+    cell.cellCategory.text = [fetchedSignal objectForKey:@"category"];
+    cell.cellAuthor.text = [fetchedSignal objectForKey:@"username"];
+    cell.cellDate.text = [fetchedSignal objectForKey:@"addedOn"];
+    PFFile *imageFile = [fetchedSignal objectForKey:@"picture"];
+    
+    [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            cell.cellImage.image = [UIImage imageWithData:data];
+        }
+    }];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!self.customCell) {
         self.customCell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
     }
-    
-//    self.customCell.cellTitle.text = @"Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahgcgcgchcchjcjchgchgchgchjgchchchjchgchjchghgcygfytff";
-//    self.customCell.cellCategory.text = @"Accident";
-//    self.customCell.cellAuthor.text = @"Pesho";
-//    self.customCell.cellDate.text = [self getDate];
-//    self.customCell.cellImage.image = [UIImage imageNamed:@"car-accident"];
-//    
-//    [self.customCell layoutIfNeeded];
-//    
-//    CGFloat height = [self.customCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     CGFloat height = 280;
     
     return height;

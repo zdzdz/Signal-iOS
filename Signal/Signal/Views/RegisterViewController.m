@@ -37,9 +37,7 @@
 - (IBAction)registerBtn:(UIButton *)sender {
     if (self.passwordLabel.text != self.repeatPasswordLabel.text) {
         [self showAlertWithTitle:@"Warning" andMessage:@"Passwords do not match."];
-    }
-    
-    if (self.usernameLabel.text.length == 0 || self.passwordLabel.text.length == 0 || self.repeatPasswordLabel.text.length == 0) {
+    } else if (self.usernameLabel.text.length == 0 || self.passwordLabel.text.length == 0 || self.repeatPasswordLabel.text.length == 0) {
         
         [self showAlertWithTitle:@"Warning" andMessage:@"Fields cannot be empty."];
     } else {

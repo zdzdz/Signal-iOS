@@ -386,19 +386,6 @@
     [_pageView addSubview:searchIcon];
 }
 
-- (void)searchBar:(UISearchBar *)bar textDidChange:(NSString *)searchText{
-    if([self.searchField isFirstResponder]) {
-        PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
-        //dataQuery.limit = 10;
-        [dataQuery orderByDescending:@"createdAt"];
-        //[dataQuery fromLocalDatastore];
-        [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-            self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
-            [_tableView reloadData];
-        }];
-    }
-}
-
 - (void)addAlertButtonWithTarget:(id)target selector:(SEL)selector
 {
     

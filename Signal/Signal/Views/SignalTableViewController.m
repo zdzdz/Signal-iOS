@@ -63,7 +63,8 @@
     }
     
     PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
-    //[dataQuery fromLocalDatastore];
+    //dataQuery.limit = 10;
+    [dataQuery fromLocalDatastore];
     [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
         [_tableView reloadData];
@@ -140,11 +141,9 @@
     [self.sideDrawerView.mainView addGestureRecognizer:rightSwipeGestureRecognizer];
     
     //Adding search bar
-    [self addSearchBarWithTitle:@"Search" target:self selector:@selector(showSideDrawer)];
+    [self addSearchBarWithTitle:@"Search" target:self selector:@selector(filterSignals)];
     
     //Adding tableview
-    
-//    _items = [[NSArray alloc] initWithObjects:@"Item", @"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",@"Item",nil];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.searchField.bounds.size.height + 10, self.view.bounds.size.width, self.view.bounds.size.height - (self.searchField.bounds.size.height + 140)) style:UITableViewStylePlain];
     
     _tableView.delegate = self;
@@ -219,6 +218,32 @@
     [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
     [self.navigationController pushViewController:addSignalVC animated:YES];
 }
+
+-(void) filterSignals{
+    
+    PFQuery *userQuery = [PFQuery queryWithClassName:@"Signal"];
+    [userQuery whereKey:@"category" containsString:self.searchField.text];
+    
+    PFQuery *categoryQuery = [PFQuery queryWithClassName:@"Signal"];
+    [categoryQuery whereKey:@"username" containsString:self.searchField.text];
+    
+    PFQuery *descriptionQuery = [PFQuery queryWithClassName:@"Signal"];
+    [descriptionQuery whereKey:@"description" containsString:self.searchField.text];
+    
+    PFQuery *titleQuery = [PFQuery queryWithClassName:@"Signal"];
+    [titleQuery whereKey:@"title" containsString:self.searchField.text];\
+    
+    PFQuery *dateCreatedQuery = [PFQuery queryWithClassName:@"Signal"];
+    [dateCreatedQuery whereKey:@"addedOn" containsString:self.searchField.text];
+    
+    PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[userQuery ,categoryQuery, descriptionQuery, titleQuery, dateCreatedQuery]];
+    [mainQuery fromLocalDatastore];
+    [mainQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
+        [_tableView reloadData];
+    }];
+}
+
 
 -(void) showEmergencyDial{
     self.alertBtn.hidden = YES;
@@ -357,6 +382,18 @@
     UIImageView *searchIcon = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x + 15, 0, self.view.bounds.size.width - (self.searchButton.bounds.size.width + self.searchField.bounds.size.width + 30), 30)];
     [searchIcon setImage:[UIImage imageNamed:@"search"]];
     [_pageView addSubview:searchIcon];
+}
+
+- (void)searchBar:(UISearchBar *)bar textDidChange:(NSString *)searchText{
+    if([self.searchField isFirstResponder]) {
+        PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
+        //dataQuery.limit = 10;
+        [dataQuery fromLocalDatastore];
+        [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+            self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
+            [_tableView reloadData];
+        }];
+    }
 }
 
 - (void)addAlertButtonWithTarget:(id)target selector:(SEL)selector

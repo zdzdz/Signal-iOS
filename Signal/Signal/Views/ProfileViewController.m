@@ -224,6 +224,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         PFObject *fetchedSignal = [self.fetchedData objectAtIndex:indexPath.row];
         [fetchedSignal deleteInBackground];
+        //[fetchedSignal deleteEventually];
         [self.fetchedData removeObjectAtIndex:indexPath.row];
         [self.signalsTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }

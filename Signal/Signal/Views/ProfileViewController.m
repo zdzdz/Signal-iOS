@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *signalsTable;
 
 @property(nonatomic,readonly) NSManagedObjectContext *managedContext;
+@property(nonatomic,strong) NSMutableArray *fetchedData;
 
 - (IBAction)changeProfilePic:(UIButton *)sender;
 
@@ -66,6 +67,12 @@
                 self.profilePicture.image = [UIImage imageWithData:data];
             }
         }];
+    }];
+    
+    PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
+    [dataQuery whereKey:@"username" containsString:_currentUser];
+    [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        self.fetchedData = [NSMutableArray arrayWithObjects:objects, nil];
     }];
 }
 
@@ -175,7 +182,7 @@
 #pragma mark - UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.fetchedData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -187,6 +194,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
+    cell.textLabel.text = self.fetchedData[indexPath.row][@"title"];
     return cell;
 }
 

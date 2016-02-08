@@ -12,6 +12,7 @@
 		0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C2E0B1C626BC2001E6C35 /* RegisterViewController.m */; };
 		0D230DDF1C67D5600050D9B4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D230DDE1C67D5600050D9B4 /* libsqlite3.dylib */; };
 		0D230DE21C67E0AF0050D9B4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D230DE11C67E0AF0050D9B4 /* ProfileViewController.m */; };
+		0D230DE61C681C530050D9B4 /* Signal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D230DE51C681C530050D9B4 /* Signal.m */; };
 		0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D233F5E1C6545CF00EE8C84 /* PhysicsTransitionManager.swift */; };
 		0D233F611C655CBD00EE8C84 /* SignalCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D233F601C655CBD00EE8C84 /* SignalCustomCell.xib */; };
 		0D233F641C65612400EE8C84 /* SignalCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D233F631C65612400EE8C84 /* SignalCustomCell.m */; };
@@ -43,6 +44,8 @@
 		0D230DDE1C67D5600050D9B4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		0D230DE01C67E0AF0050D9B4 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Views/ProfileViewController.h; sourceTree = "<group>"; };
 		0D230DE11C67E0AF0050D9B4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Views/ProfileViewController.m; sourceTree = "<group>"; };
+		0D230DE41C681C530050D9B4 /* Signal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Signal.h; path = Models/Signal.h; sourceTree = "<group>"; };
+		0D230DE51C681C530050D9B4 /* Signal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Signal.m; path = Models/Signal.m; sourceTree = "<group>"; };
 		0D233F5E1C6545CF00EE8C84 /* PhysicsTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhysicsTransitionManager.swift; path = Helpers/PhysicsTransitionManager.swift; sourceTree = "<group>"; };
 		0D233F601C655CBD00EE8C84 /* SignalCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignalCustomCell.xib; path = CustomViews/SignalCustomCell.xib; sourceTree = "<group>"; };
 		0D233F621C65612400EE8C84 /* SignalCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignalCustomCell.h; path = CustomViews/SignalCustomCell.h; sourceTree = "<group>"; };
@@ -99,6 +102,15 @@
 			name = CustomViews;
 			sourceTree = "<group>";
 		};
+		0D230DE31C681C100050D9B4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0D230DE41C681C530050D9B4 /* Signal.h */,
+				0D230DE51C681C530050D9B4 /* Signal.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		0D233F5D1C6545BA00EE8C84 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +163,7 @@
 		0DD170751C5FF22B00A39D7B /* Signal */ = {
 			isa = PBXGroup;
 			children = (
+				0D230DE31C681C100050D9B4 /* Models */,
 				0D233F5D1C6545BA00EE8C84 /* Helpers */,
 				0D22B0F41C65440F005280A0 /* CustomViews */,
 				0D66362C1C6003CA00D15136 /* Views */,
@@ -322,6 +335,7 @@
 				0DD170781C5FF22B00A39D7B /* main.m in Sources */,
 				0D0C2E0C1C626BC2001E6C35 /* RegisterViewController.m in Sources */,
 				0D233F641C65612400EE8C84 /* SignalCustomCell.m in Sources */,
+				0D230DE61C681C530050D9B4 /* Signal.m in Sources */,
 				0D277FD61C66B5C700D8A662 /* MapViewController.swift in Sources */,
 				0D0C2E091C626B62001E6C35 /* AddSignalViewController.m in Sources */,
 				0D233F5F1C6545CF00EE8C84 /* PhysicsTransitionManager.swift in Sources */,

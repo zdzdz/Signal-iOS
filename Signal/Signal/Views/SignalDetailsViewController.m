@@ -14,18 +14,15 @@
 #import "Signal-Swift.h"
 
 @interface SignalDetailsViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *pictureView;
-@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UITextView *mainTextLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateAddedLabel;
 
-@property (strong, nonatomic) NSString *latitude;
-@property (strong, nonatomic) NSString *longitude;
 @property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSString *country;
 
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet UITextView *mainTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateAddedLabel;
 @property (weak, nonatomic) IBOutlet UITextField *numberLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailLabel;
 - (IBAction)phoneButton:(UIButton *)sender;
@@ -39,10 +36,18 @@
     CLPlacemark *_placemark;
     CLLocationManager *_locationManager;
 }
+-(void)viewWillAppear:(BOOL)animated{
+    self.titleLabel.text = self.titleStr;
+    self.categoryLabel.text = self.categoryStr;
+    self.authorLabel.text = self.authorStr;
+    self.mainTextLabel.text = self.descriptionStr;
+    self.dateAddedLabel.text = self.addedOnStr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Details";
+    
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
     singleTap.numberOfTapsRequired = 1;
@@ -111,17 +116,25 @@
 }
 
 - (IBAction)gpsButton:(UIButton *)sender {
-    _geocoder = [[CLGeocoder alloc] init];
-    if (_locationManager == nil) {
-        _locationManager = [[CLLocationManager alloc] init];
-        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-        _locationManager.delegate  = self;
-        _locationManager.distanceFilter = 500;
-    }
+//    _geocoder = [[CLGeocoder alloc] init];
+//    if (_locationManager == nil) {
+//        _locationManager = [[CLLocationManager alloc] init];
+//        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+//        _locationManager.delegate  = self;
+//        _locationManager.distanceFilter = 500;
+//    }
+//    
+//    [_locationManager requestAlwaysAuthorization];
+//    
+//    [_locationManager startUpdatingLocation];
     
-    [_locationManager requestAlwaysAuthorization];
+     NSString *storyBoardId = @"MapID";
     
-    [_locationManager startUpdatingLocation];
+    MapViewController *mapVC =
+    [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
+    mapVC.latitude = self.latitude;
+    mapVC.longitude = self.longitude;
+    [self.navigationController pushViewController:mapVC animated:YES];
 }
 
 

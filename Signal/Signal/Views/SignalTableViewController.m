@@ -150,8 +150,6 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    _tableView.backgroundColor = [UIColor colorWithRed:0.424 green:0.565 blue:0.592 alpha:1];
-    
     [_pageView addSubview:_tableView];
     
     //Add alert button
@@ -419,8 +417,6 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(SignalCustomCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     PFObject *fetchedSignal = [self.fetchedData objectAtIndex:indexPath.row];
     
-    //NSLog(@"%@", fetchedSignal);
-    
     cell.cellTitle.text = [fetchedSignal objectForKey:@"title"];
     cell.cellCategory.text = [fetchedSignal objectForKey:@"category"];
     cell.cellAuthor.text = [fetchedSignal objectForKey:@"username"];
@@ -448,8 +444,25 @@
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *gsmInfoViewId = @"DetailsView";
+    PFObject *fetchedSignal = [self.fetchedData objectAtIndex:indexPath.row];
+  
+    PFFile *imageFile = [fetchedSignal objectForKey:@"picture"];
+    
+    
     
     SignalDetailsViewController *detailsVC = [self.storyboard instantiateViewControllerWithIdentifier:gsmInfoViewId];
+    detailsVC.categoryStr = [fetchedSignal objectForKey:@"category"];
+    detailsVC.titleStr = [fetchedSignal objectForKey:@"title"];
+    detailsVC.addedOnStr = [fetchedSignal objectForKey:@"addedOn"];
+    detailsVC.authorStr = [fetchedSignal objectForKey:@"username"];
+    detailsVC.descriptionStr = [fetchedSignal objectForKey:@"description"];
+    detailsVC.latitude = [fetchedSignal objectForKey:@"latitude"];
+    detailsVC.longitude = [fetchedSignal objectForKey:@"longitude"];
+    [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            detailsVC.pictureView.image = [UIImage imageWithData:data];
+        }
+    }];
     
     [self.navigationController pushViewController:detailsVC animated:YES];
 }

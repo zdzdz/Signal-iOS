@@ -200,6 +200,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car-accident" translatesAutoresizingMaskIntoConstraints="NO" id="ueb-ga-Hr9">
+                                <rect key="frame" x="20" y="74" width="190" height="106"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="97c-aj-sBn"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibu-uP-Hn0">
                                 <rect key="frame" x="20" y="20" width="560" height="46"/>
                                 <constraints>
@@ -255,23 +261,6 @@
                                 <rect key="frame" x="291" y="124" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fc-Rf-TUz">
-                                <rect key="frame" x="20" y="193" width="560" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="MIf-M1-pEi"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="= More Details =">
-                                        <attributes>
-                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="19" name="GujaratiSangamMN-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            <integer key="NSUnderline" value="1"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FnH-Vc-3CX">
@@ -367,12 +356,23 @@
                                     <action selector="gpsButton:" destination="9Ls-au-u8f" eventType="touchUpInside" id="IXg-Md-FZm"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car-accident" translatesAutoresizingMaskIntoConstraints="NO" id="ueb-ga-Hr9">
-                                <rect key="frame" x="20" y="74" width="190" height="106"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fc-Rf-TUz">
+                                <rect key="frame" x="20" y="193" width="560" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="97c-aj-sBn"/>
+                                    <constraint firstAttribute="height" constant="40" id="MIf-M1-pEi"/>
                                 </constraints>
-                            </imageView>
+                                <attributedString key="attributedText">
+                                    <fragment content="= More Details =">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="19" name="GujaratiSangamMN-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -721,12 +721,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="XRN-gF-7Qx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51F-Td-u2y">
+                                <rect key="frame" x="228" y="28" width="352" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="sON-wK-Bbe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgq-nz-d9N">
+                                <rect key="frame" x="108" y="176" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Prs-Aa-jp3"/>
+                                    <constraint firstAttribute="height" constant="25" id="TWg-eH-t46"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="folder"/>
+                                <connections>
+                                    <action selector="changeProfilePic:" destination="mHZ-py-h70" eventType="touchUpInside" id="N1k-j0-0ot"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cw-cM-dMg">
+                                <rect key="frame" x="20" y="203" width="560" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bp9-be-ODF"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="= My Signals =">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="19" name="GujaratiSangamMN-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lJL-EH-MNA">
+                                <rect key="frame" x="20" y="251" width="560" height="329"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="XRN-gF-7Qx">
                                 <rect key="frame" x="20" y="28" width="200" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="1bT-9W-xVJ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lJL-EH-MNA" firstAttribute="leading" secondItem="2cw-cM-dMg" secondAttribute="leading" id="00r-OA-Mqo"/>
+                            <constraint firstItem="XRN-gF-7Qx" firstAttribute="leading" secondItem="2cw-cM-dMg" secondAttribute="leading" id="396-Dv-MhE"/>
+                            <constraint firstItem="2cw-cM-dMg" firstAttribute="trailing" secondItem="gIb-Mm-9jQ" secondAttribute="trailingMargin" id="5jA-DT-Mmb"/>
+                            <constraint firstItem="lJL-EH-MNA" firstAttribute="trailing" secondItem="2cw-cM-dMg" secondAttribute="trailing" id="94G-mT-GMh"/>
+                            <constraint firstItem="bgq-nz-d9N" firstAttribute="top" secondItem="XRN-gF-7Qx" secondAttribute="bottom" constant="8" symbolic="YES" id="9Dh-pt-0ci"/>
+                            <constraint firstItem="51F-Td-u2y" firstAttribute="trailing" secondItem="2cw-cM-dMg" secondAttribute="trailing" id="ArU-A9-B6F"/>
+                            <constraint firstItem="XRN-gF-7Qx" firstAttribute="leading" secondItem="gIb-Mm-9jQ" secondAttribute="leadingMargin" id="Rdk-Yp-s3S"/>
+                            <constraint firstAttribute="bottom" secondItem="lJL-EH-MNA" secondAttribute="bottom" constant="20" symbolic="YES" id="WaY-2J-f4x"/>
+                            <constraint firstItem="lJL-EH-MNA" firstAttribute="top" secondItem="2cw-cM-dMg" secondAttribute="bottom" constant="8" symbolic="YES" id="Znw-rA-bxP"/>
+                            <constraint firstItem="2cw-cM-dMg" firstAttribute="top" secondItem="bgq-nz-d9N" secondAttribute="bottom" constant="2" id="dzI-7w-lvd"/>
+                            <constraint firstItem="bgq-nz-d9N" firstAttribute="centerX" secondItem="XRN-gF-7Qx" secondAttribute="centerX" id="fK3-NE-QWk"/>
+                            <constraint firstItem="XRN-gF-7Qx" firstAttribute="top" secondItem="bJT-9R-wbG" secondAttribute="bottom" constant="8" symbolic="YES" id="feg-UO-TNI"/>
+                            <constraint firstItem="bgq-nz-d9N" firstAttribute="leading" secondItem="gIb-Mm-9jQ" secondAttribute="leadingMargin" constant="88" id="mo7-L3-OAX"/>
+                            <constraint firstItem="51F-Td-u2y" firstAttribute="top" secondItem="XRN-gF-7Qx" secondAttribute="top" id="wFa-RN-rHr"/>
+                            <constraint firstItem="51F-Td-u2y" firstAttribute="leading" secondItem="XRN-gF-7Qx" secondAttribute="trailing" constant="8" symbolic="YES" id="wla-fP-ESC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="editButton" destination="bgq-nz-d9N" id="ddb-Du-Y1k"/>
+                        <outlet property="profilePicture" destination="XRN-gF-7Qx" id="sMH-sl-taO"/>
+                        <outlet property="signalsTable" destination="lJL-EH-MNA" id="JjM-Wd-kx0"/>
+                        <outlet property="usernameLabel" destination="51F-Td-u2y" id="ZQC-7b-zax"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCk-Zj-Xrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

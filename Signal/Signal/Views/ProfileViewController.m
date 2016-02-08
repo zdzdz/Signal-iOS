@@ -12,6 +12,8 @@
 #import "Parse/Parse.h"
 #import "AppDelegate.h"
 
+#import "Signal.h"
+
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -47,14 +49,17 @@
     self.signalsTable.delegate = self;
     self.signalsTable.dataSource = self;
     
-    self.signalsTable.backgroundColor = [UIColor colorWithRed:0.424 green:0.565 blue:0.592 alpha:1];
     
+    PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
+    [dataQuery whereKey:@"username" containsString:_currentUser];
     
-    [self.signalsTable reloadData];
+    [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        self.fetchedData = [[NSMutableArray alloc] initWithArray:objects];
+        [self.signalsTable reloadData];
+    }];
     
     PFQuery *query = [PFQuery queryWithClassName:@"ProfilePicture"];
     [query whereKey:@"userName" containsString:_currentUser];
-    
     [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         if (!object) {
             
@@ -69,11 +74,7 @@
         }];
     }];
     
-    PFQuery *dataQuery = [PFQuery queryWithClassName:@"Signal"];
-    [dataQuery whereKey:@"username" containsString:_currentUser];
-    [dataQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        self.fetchedData = [NSMutableArray arrayWithObjects:objects, nil];
-    }];
+    
 }
 
 - (void)viewDidLoad {
@@ -194,7 +195,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = self.fetchedData[indexPath.row][@"title"];
+    PFObject *fetchedSignal = [self.fetchedData objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@    %@", [fetchedSignal objectForKey:@"title"], [fetchedSignal objectForKey:@"addedOn"]];
     return cell;
 }
 
@@ -219,9 +222,9 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-        //        [delegate.data deletePhone:[self.allPhones objectAtIndex:indexPath.row]];
-        //        self.allPhones = [delegate.data phones];
+        PFObject *fetchedSignal = [self.fetchedData objectAtIndex:indexPath.row];
+        [fetchedSignal deleteInBackground];
+        [self.fetchedData removeObjectAtIndex:indexPath.row];
         [self.signalsTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }
 }
